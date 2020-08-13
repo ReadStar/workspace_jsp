@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//window - location
+// 		 - history
+// 		 - document	- image, link, layer, ...
+// 					- form - texdt, password, txtarea
+// 						   - checkbox, radiobox
+// 						   -select    -option
+
+// window.document.forms[0].변수
+// window.document.폼태그이름.변수
+// document.forms[0].action document.fr.action
+// document.forms[0].method document.fr.method
+
+
+// window.document.forms[0].함수()
+// window.document.폼태그이름.함수()
+// document.forms[0].submit() document.fr.submit()
+// document.forms[0].reset() document.fr.reset()
+
+function fun1() {
+// 	alert(document.forms[0].action);
+// 	alert(document.forms[0].method);
+	alert(document.fr.action);
+	alert(document.fr.method);
+	//submit버튼 a.jsp get
+	document.fr.submit();
+}
+function fun2() {
+	//action b.jsp변경 method post 변경
+	document.fr.action="b.jsp";
+	document.fr.method="post";
+	alert(document.fr.action);
+	alert(document.fr.method);
+	//submit버튼  b.jsp post
+	document.fr.submit();
+}
+function fun3(a) {
+	//받는 변수, if, 액션변수 변경, 전송submit()함수
+	//받은 값이 'basket'이면 basket.jsp이동
+	//		'order' 이면 order.jsp이동
+	if (a == 'basket'){
+		document.fr.action="basket.jsp";
+	}else{
+		document.fr.action="order.jsp";
+	}
+	document.fr.submit();
+}
+</script>
+</head>
+<body>
+<h1>WebContent/js3/test2.html</h1>
+
+<form action="a.jsp" method="get" name="fr">
+<input type="text" name="txt"><br>
+<input type="button" value="폼정보" onclick="fun1()">
+<input type="button" value="폼정보변경" onclick="fun2()">
+<input type="button" value="장바구니" onclick="fun3('basket')">
+<input type="button" value="바로구매" onclick="fun3('order')">
+</form>
+
+</body>
+</html>

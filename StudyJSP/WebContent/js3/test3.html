@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+// window.documnet.폼이름.텍스트상자이름.변수
+// 	   document.fr.txt.type
+// 	   document.fr.txt.value
+// window.document.폼이름.텍스트상자이름.함수()
+// 	   document.fr.txt.focus() 포커스 커서 깜박
+// 	   document.fr.txt.blur() 커서 깜박 해제
+// 	   document.fr.txt.select() 텍스트상자 글자 선택
+function fun1() {
+	alert(document.fr.txt.type); //text
+	alert(document.fr.txt.value); //텍스트상자에 입력한 값
+}
+function fun2() {
+	document.fr.txt.value="btn click";
+	//텍스트 상자 커서 깜박
+	document.fr.txt.focus();
+	//커서 깜박 해제
+	document.fr.txt.blur();
+	//텍스트상자 글자 선택
+	document.fr.txt.select();
+}
+function fun3() {
+	//텍스트상자 value 출력
+//	alert(document.fr.txt.value);
+// 	테스트상자 value 문자열 길이 저장하는 변수
+// 	문자열내장객체.변수 문자열내장객체.함수()
+// 	문자열.length => 문자열길이
+	alert(document.fr.txt.value);
+	alert(document.fr.txt.value.length);
+// 	alert("문자열".length);
+	
+// 	if(document.fr.txt.value == ""){
+// 		alert("텍스트상자 비어있음");
+// 		//텍스트상자 커서 깜박임
+// 		document.fr.txt.focus();
+// 		//함수 호출한 곳으로 되돌아감
+// 		return;
+// 	}
+	if(document.fr.txt.value.length == ""){
+		alert("텍스트입력상자 비어있음");
+		//텍스트상자 커서 깜박임
+		document.fr.txt.focus();
+		//함수 호출한 곳으로 되돌아감
+		return;
+	}
+	
+	if(document.fr.txt.value.length != 5){
+		alert("텍스트입력 글자는 5자입니다");
+		//텍스트상자 커서 깜박임
+		document.fr.txt.focus();
+		//함수 호출한 곳으로 되돌아감
+		return;
+	}
+	
+	if(document.fr.pass.value.length ==""){
+		alert("비밀번호상자 비어있음")
+		document.fr.pass.focus();
+		return;
+	}
+	
+	if(document.fr.pass.value.length <4 || document.fr.pass.value.length >7){
+		alert("비밀번호는 4자~7자입니다")
+		document.fr.pass.focus();
+		return;
+	}
+// 	var a=document.fr.pass.value.length;
+// 	if(!(a >= 4 && a <= 7)){
+// 		alert("비밀번호는 4~7자 입니다");
+// 		document.fr.pass.focus();
+// 		return;
+// 	}
+	
+	if(document.fr.tx.value ==""){
+		alert("긴텍스트상자 비어있음")
+		document.fr.tx.focus();
+		return;}
+		document.fr.submit();
+}
+</script>
+</head>
+<body>
+<h1>WebContent/js3/test3.html</h1>
+<form action="a.jsp" method="get" name="fr">
+텍스트상자 <input type="text" name="txt"><br>
+비밀번호상자 <input type="password" name="pass"><br>
+긴텍스트상자  <textarea name="tx" rows="5" cols="10">긴텍스트내용</textarea><br>
+<input type="button" value="텍스트상자정보" onclick="fun1()">
+<input type="button" value="텍스트상자정보" onclick="fun2()">
+<input type="button" value="value값" onclick="fun3()">
+</form>
+</body>
+</html>

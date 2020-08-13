@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//window.document.폼이름.목록상자이름.변수
+//		 document.fr.sel.name
+//		 document.fr.sel.type
+//       document.fr.sel.length
+//		 document.fr.sel.options[0]
+//		 document.fr.sel.selectedIndex
+//		 	선택된 목록의 순서값
+
+//window.document.폼이름.목록상자이름.options[0].변수
+//		 document.fr.sel.options[0].value
+//		 document.fr.sel.options[0].text
+//		 document.fr.sel.options[0].selected
+//			목록이 선택되어 있으면 true / 아니면 false
+
+//window.document.폼이름.목록상자이름.함수()
+//		 document.fr.sel.focus()
+//		 document.fr.sel.blur()
+
+function fun1() {
+	alert(document.fr.sel.name);
+	alert(document.fr.sel.type);
+	alert(document.fr.sel.length);
+	alert(document.fr.sel.selectedIndex); //0 <- 선택된 순서값
+}
+function fun2() {
+	alert(document.fr.sel.options[0].value);
+	alert(document.fr.sel.options[0].text);
+	alert(document.fr.sel.options[0].selected);
+	//포커스
+	document.fr.sel.focus();
+}
+
+function fun3() {
+	if(document.fr.sel.options[0].selected == true){
+		//목록을 선택하세요
+		alert("목록을 선택하세요")
+		//포커스
+		//리턴
+		document.fr.sel.focus();
+		return;
+	}
+	document.fr.submit();
+}
+
+</script>
+</head>
+<body>
+<h1>WebContent/js3/tset5.html</h1>
+<form action="a.jsp" method="get" name="fr">
+목록상자 : <select name="sel">
+		<option value ="">목록을 선택하세요</option>
+		<option value ="sel1">목록1</option>
+		<option value ="sel2">목록2</option>
+		<option value ="sel3">목록3</option>
+</select><br>
+<input type="button" value="목록상자정보" onclick="fun1()">
+<input type="button" value="목록상자정보2" onclick="fun2()">
+<input type="button" value="목록상자제어" onclick="fun3()">
+
+</form>
+
+</body>
+</html>

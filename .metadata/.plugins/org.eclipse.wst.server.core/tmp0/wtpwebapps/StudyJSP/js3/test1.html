@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//window - location
+// 		 - history
+// 		 - document	- image, link, layer, ...
+// 					- form - texdt, password, txtarea
+// 						   - checkbox, radiobox
+// 						   -select    -option
+</script>
+</head>
+<body>
+<h1>Webcontent/js3.test1.html</h1>
+<a href="a.jsp">하이퍼링크</a>
+<form action="a.jsp" method="get" name="ABC"><!-- get은 그대로 가져가고 post는 눈에 보이지 않음 -->
+텍스트상자 <input type="text" name="txt"><br>
+비밀번호상자 <input type="password" name="pass"><br>
+긴텍스상자 <textarea name="tx" rows="5" cols="10"> 긴텍스트내용</textarea><br>
+라디오박스 <input type="radio" name="ra" value="rbox1">라디오박스1
+	   <input type="radio" name="ra" value="rbox2">라디오박스2
+<br>
+체크박스 <input type="checkbox" name="ch" value="cbox1">체크박스1
+	  <input type="checkbox" name="ch" value="chox2">체크박스2
+<br>
+목록상자 <select name="sel"><!-- multiple="multiple" -->
+		<option value="sell1">목록1</option>
+		<option value="sell1">목록2</option>
+		<option value="sell1">목록3</option>
+		<option value="sell1">목록4</option>
+		</select>
+<br>
+숨김상자 <input type="hidden" name="hi" value="hivalue"><br>
+<!-- 안보이지만 값이 있는 상자 -->
+파일 <input type="file" name="file"> <br> <!-- 밸류값 x 파일 첨부-->
+<br>
+<input type="submit" value="전송">
+<input type="reset" value="초기화">
+<input type="submit" value="버튼">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 함수 정의
+ * 1. 함수호출시 값 전달 없이 함수 내용이 실행-> 결과값(리턴값) X */
+function fun1() {
+	 alert("********");
+	 return;//결과 값이 없으면 생략가능
+	
+}
+// 2.함수 호출 시 값을 전달하고 함수내용이 실행되고 결과값(리턴값) X
+function fun2(a,b) {
+	alert(a);
+	alert(b);
+	alert("********"); alert("********");
+	return;
+}
+// 3.함수 호출 시 값 전달 없고 함수 내용은 실행되고 결과값(리턴값) O
+function fun3() {
+	alert("커피 준비합니다.");
+	return "커피";
+	
+}
+function fun4(a) {
+	alert("받은 동전 : "+a);
+	alert("음료 준비합니다.");
+	return "사이다";
+}
+</script>
+
+</head>
+<body>
+
+<h1>WebContent/js1/test4.html4</h1>
+<input type="button" value="함수호출1" onclick="fun1()">
+<input type="button" value="함수호출2" onclick="fun2(500,1000)">
+<input type="button" value="함수호출3" onclick="alert('리턴받은커피 : '+fun3())">
+<input type="button" value="함수호출4"	 onclick="alert('받은 음료 : '+fun4(500))">
+</body>
+</html>

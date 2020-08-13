@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//내장함수
+//	function alert(m){
+//	창을 만들기
+//	m을 받아서 메시지 출력
+//	return;
+// 	}
+//내장함수 호출
+// 	alert("내장함수 메시지출력");
+
+//	confirm()	확인,취소
+// function confirm(m) {
+	//창을 만들기
+	//창에 m메시지 출력
+	//확인 => true 리턴, 취소=> false
+// 	alert(confirm("선택하세요"));
+// var a = (confirm("선택하세요"));
+// 	alert(a);
+// 	//제어문(조건문if)
+// 	if(a ==true){
+// 		//조건이나 참이면 실행	
+// 		alert("확인을 눌렀네요")
+// 	}else{
+// 		//a가 true가 아닌것
+// 		//조건이 거짓이면 실행}
+// 		alert("취소를 눌렀네요")
+// 	}
+	
+	//확인을 눌렸네요
+	//취소를 눌렸네요
+		//confirm 이용 가입하려면 확인 단추를 누르세요
+		//확인 => "가입해주셔서 감사합니다."
+		//취소 => "다음에 방문해주세요"
+// 		var b = (confirm("가입하려면 확인 버튼을 누르세요"));
+// 		alert(a);
+// 		if(b == true){
+// 			alert("가입해주셔서 감사합니다")
+// 		}
+// 			else{alert("다음에 방문해주세요")
+				
+// 		}
+// 	prompt()	값을 입력받기
+// function [prompt("메시지 받을 변수","화면에 보여줄 값 저장 변수") {
+// 	//창을 만들기
+// 	//메시지, 값 출력
+// 	}//입력한 값 리턴
+	//입력한 결과는 문자, *일 경우 자동으로 문자가 숫자로 변경
+// var c =prompt("입력하세요", "입력값");
+// 	alert(c);
+// 	alert(c*100);
+// 	alert(c+100);
+// 	//더하기 문자를 숫자로 변경해서 더하기 계산
+// 	//parseInt()	문자를 정수 값 변경
+// 	alert(parseInt(c)+100);
+	//parseFloat()문자를 실수형으로 변경
+//	parseInt()	문자를 정수형으로 값변경 
+//	isNaN()	is Not a Number 숫자false, 문자true 비교
+// 	alert(isNaN("문자"));
+// 	alert(isNaN("500"));
+// 	alert(isNaN(100));
+
+// 	var d = isNaN(prompt("입력하세요", "입력값"));
+// 	alert(d);
+// 	if (d == true){
+// 		alert("문자네")
+// 		}
+// 		else{alert("숫자네")
+// 		}
+	//값을 입력 받아서 문자면 입력 받은값 출력, 숫자면 입력 받은 값 +100 출력
+	
+	var e = (prompt("입력하세요", "입력"))
+	var f = isNaN(e)
+	if (f == true){
+		alert(e)
+	}
+	else{
+		alert(parseInt(e)+100)};
+
+</script>
+</head>
+<body>
+<h1>WebContent/js1/test6.html</h1>
+</body>
+</html>

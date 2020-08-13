@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//window - location
+// - history
+// - document	- image, link, layer, ...
+//			- form - texdt, password, txtarea
+//				   - checkbox, radiobox
+//				   -select    -option
+
+//window.document.폼이름.라디오박스이름[0].변수
+//	document.fr.ra[0].type
+//	document.fr.ra[0].name
+//	document.fr.ra[0].value
+//	document.fr.ra[0].checked 첫번째 라디오박스 체크되어 있으면 true 아니면 false
+
+//window.document.폼이름.라디오박스이름[0].함수()
+//  document.fr.ra[0].focus()
+//  document.fr.ra[0].blur()
+//  document.fr.ra[0].()
+
+
+function fun1() {
+	alert(document.fr.ra[0].type);
+	alert(document.fr.ra[0].name);
+	alert(document.fr.ra[0].value);
+	alert(document.fr.ra[0].checked);
+	//첫번째 라디오 박스 커서
+	document.fr.ra[0].focus();
+	//해제
+	document.fr.ra[0].blur();
+	//클릭
+	document.fr.ra[0].click();
+}
+
+function fun2() {
+	if(document.fr.ra[0].checked == false && document.fr.ra[1].checked == false){
+		alert("라디오박스 선택하세요");
+		document.fr.ra[0].focus();
+		return;
+	}
+}
+function fun3() {
+	//체크박스 모두 선택 안되어 있으면
+	if(document.fr.ch[0].checked == false && document.fr.ch[1].checked == false){
+		alert("체크박스 선택하세요")
+		document.fr.ch[0].focus();
+		return;
+	}
+	document.fr.submit();
+}
+	
+	
+	
+	
+</script>
+</head>
+<body>
+<h1>WebContent/js3/test4.html</h1>
+<form action="a.jsp" method="get" name="fr">
+라디오박스 : <input type="radio" name = "ra" value="rbox1">라디오박스1
+		 <input type="radio" name = "ra" value="rbox2">
+<br>
+체크박스 : <input type="checkbox" name = "ch" value="cbox1">
+		<input type="checkbox" name = "ch" value="cbox2">
+<br>
+<input type="button" value = "라디오박스정보" onclick = "fun1()">
+<input type="button" value = "라디오박스제어" onclick = "fun2()">
+<input type="button" value = "체크박스제어" onclick = "fun3()">
+</form>
+</body>
+</html>

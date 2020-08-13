@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 빅데이터 활용 자바 파이썬 개발자 양성 -->
+<!-- 2020-07-13 ~ 2021-01-06 (6개월, 976시간)  -->
+
+<!-- 홍진숙  010-8524-1949  -->
+<!--            hongcine@itwillbs.co.kr -->
+
+<!-- 자기소개(이름,나이,취미,특기...) -->
+<!-- 경력(컴퓨터실력,경력,전공,...) -->
+<!-- 공부계획(자격증취득,..) -->
+<!-- 진로(취업진로,...) -->
+<!-- 하고싶은 이야기 -->
+
+
+<!-- 직업기초(대인관계능력, 직업윤리) -->
+<!-- JSP - JSP2(모델2,MVC) - 스프링프레임워크(전자정부) -->
+<!-- (요구사항확인, 서버프로그램구현, 인터페이스구현, 통합구현) -->
+<!-- 자바 - 안드로이드 앱  -->
+<!-- (응용SW기초기술활용,프로그래밍 언어활용, 애플리케이션 테스트 수행, 애플리케이션 배포, 애플리케이션 테스트 관리, 제품소프트웨어 패키징, 정보시스템 이행) -->
+<!-- 데이터베이스 - 오라클  -->
+<!-- (SQL활용, 데이터베이스 구현,데이터 입출력 구현) -->
+<!-- 웹표준 - HTML,CSS -->
+<!-- (화면설계, 화면구현) -->
+<!-- 빅데이터 (빅데이터 수집,분석) -->
+
+
+<!-- JSP(개인프로젝트,포트폴리오) - JSP2(모델2,MVC) - 스프링프레임워크(전자정부) -->
+<!-- (요구사항확인, 서버프로그램구현, 인터페이스구현, 통합구현) -->
+<!--                                        - 빅데이터 (빅데이터 수집,분석) -->
+
+<!-- IT - 관리,운영 -->
+<!--    - 개발 - 응용프로그램(C언어,JAVA,C#,파이썬) -->
+<!--                웹프로그램(ASP, PHP, ASP.NET,  JSP) -->
+
+<!-- 정적웹프로그램 - HTML,CSS,자바스크립트, jQuery -->
+<!-- 프론트엔드 프로그램 -->
+
+<!-- 동적웹프로그램 - ASP, PHP, ASP.NET,  JSP -->
+<!-- 백엔드 프로그램 -->
+
+<!-- - 자바스크립트(회원가입 화면제어)  -->
+<!-- - JSP(회원가입정보를 받아서 데이터베이스에 저장)  - jQuery(Ajax) -->
+<!-- - JSP2  -->
+<!-- - 빅데이터 - 스프링프레임워크   -->
+
+<!-- JSP(Java Server Page) 설치 -->
+<!-- 1. Java 프로그램 설치 - JDK(JVM) 자바 개발 도구 프로그램 설치 -->
+<!-- https://www.oracle.com/java/technologies/ -->
+<!-- Java SE -->
+<!-- Java SE 8u251 -->
+<!-- Windows x64 jdk-8u251-windows-x64.exe  -->
+
+<!-- 공유방 -->
+<!-- 시작 - 오른쪽버튼 - 실행 - \\192.168.1.200 - Shared -->
+<!-- JSP - jsp1.txt -->
+<!-- 프로그램 - jdk-8u131-windows-x64 -->
+<!-- C:\Program Files\Java\jdk1.8.0_131 -->
+<!-- C:\Program Files\Java\jre1.8.0_131 -->
+
+<!-- 설치확인 -->
+<!-- C:\Program Files\Java\jdk1.8.0_131\bin -->
+<!-- 시작 - 오른쪽버튼 - 실행 - cmd -->
+<!-- java -version -->
+<!-- javac -verson -->
+
+<!-- 자바가 자동으로 동작하기위해서 환경설정 => 컴퓨터 시스템에 자바경로를 알려줌 -->
+<!-- 내PC - 속성 - 고급시스템설정 - 고급 - 환경변수 -->
+<!-- 시스템변수 - path - 편집 - 새로만들기 - -->
+<!-- C:\Program Files\Java\jdk1.8.0_131\bin -->
+
+<!-- 자바의 실행환경 경로 설정 -->
+<!-- 내PC - 속성 - 고급시스템설정 - 고급 - 환경변수 -->
+<!-- 시스템변수 -  -->
+<!-- 새로만들기 - 변수이름 CLASSPATH -->
+<!--                   변수값 .;C:\Program Files\Java\jdk1.8.0_131\lib\tools.jar -->
+
+
+<!-- 2. 웹서버(웹애플리케이션서버) 프로그램 설치 -->
+<!-- test1.html  - 서버없이 브라우저에서 실행가능 -->
+<!-- test2.jsp - 서버없이 브라우저에서 실행 안됨 -->
+
+<!-- http://tomcat.apache.org/ -->
+<!-- Download -->
+<!-- Tomcat 8 -->
+<!-- apache-tomcat-8.0.44 설치 -->
+
+<!-- C:\Program Files\Apache Software Foundation\Tomcat 8.0\bin -->
+<!-- Tomcat8w.exe  - 오른쪽 - 관리자 권한으로 실행 -->
+<!-- 웹서버 start -->
+
+<!-- 사용자 웹브라우저 주소 http://localhost:8080 -->
+
+<!-- 웹서버에 파일이 있는 위치 -->
+<!-- C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps\ROOT -->
+<!-- test1.html  - 서버에 저장된 파일  브라우저에서 실행가능 -->
+<!-- test2.jsp - 서버에 저장된 파일  브라우저에서 실행가능 -->
+
+<!-- 사용자 웹브라우저 주소 http://localhost:8080/index.jsp -->
+<!-- 사용자 웹브라우저 주소 http://localhost:8080/test1.html -->
+<!-- 사용자 웹브라우저 주소 http://localhost:8080/test2.jsp -->
+
+<!-- 컴퓨터 번호 IP 번호 cmd ipconfig   test2.jsp 수정 => ROOT -->
+
+<!-- 방화벽 해제 -->
+<!-- 제어판\시스템 및 보안\Windows Defender 방화벽\설정 사용자 지정 -->
+
+<!-- 사용자 웹브라우저 주소 http://localhost:8080/test2.jsp -->
+<!-- 사용자 웹브라우저 주소 http://192.168.1.200:8080/test2.jsp -->
+<!-- 사용자 웹브라우저 주소 http://192.168.1.6:8080/test2.jsp -->
+<!-- 사용자 웹브라우저 주소 http://192.168.1.6:8080/test1.html -->
+<!-- 사용자 웹브라우저 주소 http://192.168.1.6:8080/index.jsp -->
+
+<!-- 웹서버(웹애플리케이션서버) 중지 -->
+<!-- C:\Program Files\Apache Software Foundation\Tomcat 8.0\bin -->
+<!-- Tomcat8w.exe  - 오른쪽 - 관리자 권한으로 실행 -->
+<!-- 웹서버 stop -->
+
+<!-- 사용자 웹브라우저 주소 http://localhost:8080/test2.jsp -->
+<!-- 사용자 웹브라우저 주소 http://192.168.1.200:8080/test2.jsp -->
+
+<!-- 3. 데이터베이스 프로그램 설치 -->
+<!-- https://www.mysql.com/ -->
+<!-- Downloads -->
+<!-- MySQL Community Server -->
+<!-- Looking for previous GA versions? -->
+<!-- MySQL Community Server 5.7.31  -->
+<!-- MySQL Installer 5.7.31  -->
+<!-- Windows (x86, 32-bit), MSI Installer  download -->
+<!-- No thanks, just start my download. -->
+
+<!-- mysql-installer-web-community-5.7.31.0.msi -->
+
+<!-- 4. 개발 툴(이클립스) 설치 -->
+<!-- https://www.eclipse.org/ -->
+<!-- C:\eclipse_jsp_1  이클립스 설치 -->
+<!-- D:\workspapce_jsp_1  작업공간 -->
+<!--  1)이클립스 환경설정 - 한글설정(utf-8) -->
+<!--    Window - Preferences - General - Workapace - Text file encoding - Other - UTF-8 -->
+
+<!--   Window - Preferences - Web -->
+<!--   - CSS Files - ISO 10646/Unicode(UTF-8) -->
+<!--   - HTML Files - ISO 10646/Unicode(UTF-8) -->
+<!--   - JSP Files - ISO 10646/Unicode(UTF-8) -->
+
+<!--  2)이클립스 아파치톰캣 서버 가져오기 -->
+<!-- File - New - Other - Server - Server -->
+<!-- - Next - Apache Tomcat v8.0 - Next -->
+<!-- Apache Tomcat v8.0 -->
+<!-- C:\Program Files\Apache Software Foundation\Tomcat 8.0 Next Finish -->
+
+<!--  3)프로젝트 만들기  -->
+<!-- File - New - Other - Web -  -->
+<!-- Dynamic Web Project - Next -->
+<!-- StudyJSP -Next -Next - web.xml 체크  -->
+
+<!--  4)서버와 프로젝트 연결 -->
+<!--   Tomcat v8.0 Server at localhost -->
+<!-- 오른쪽버튼 - Add and Remove -  -->
+<!-- 프로젝트 Add -Finish -->
+
+<!-- 5. 에디터 설치 npp.7.5.7.Installer -->
+
+<!-- 사용자 서버간 통신 흐름(처리흐름) -->
+
+<!-- 사용자(웹브라우저) 주소 http://localhost:8080/StudyJSP/js3/test7.html 요청(보고싶다) -->
+<!-- http가 localhost:8080서버 찾아 감  test7.html보고 싶다 요청 -->
+<!-- 웹서버  test7.html 찾아  .html 처리할 필요 없음  -->
+<!-- 찾은 test7.html을 http에 전달 -->
+<!-- http 들고 사용자에 감 => 웹브라우저 화면 test7.html 보여줌 -->
+
+
+<!-- 사용자(웹브라우저)  -->
+<!-- 주소 http://localhost:8080/StudyJSP/js3/a.jsp?id=kim&pass=123 요청(보고싶다) -->
+<!-- http가 localhost:8080서버 찾아 감  a.jsp보고 싶다 요청 -->
+<!-- 웹서버(아파치)  a.jsp 찾아  .jsp 처리할 필요 있음 -->
+<!-- 웹애플리케이션서버(Web Application Server,WAS,웹컨테이너,톰캣) 전달   -->
+<!-- 처리담당서버 .jsp처리 => 처리결과 java(html출력) => 웹서버에 전달 => http에 전달 -->
+<!-- http 들고 사용자에 감 => 웹브라우저 화면 .jsp처리한결과 java(html출력) 보여줌 -->
+
+<!-- 인터넷 통신 프로토콜 : HTTP(html전송통신규약),FTP(파일전송통신규약),SMTP(메일통신규약) -->
+<!-- HTTP 프로토콜(통신규약 : 사용자와 서버간에  통신할수 있게하는 규약) -->
+<!-- 웹브라우저의 통신 프로토콜 :HTTP(HyperText Transfer Protocol) -->
+<!--                      : 사용자 요청 , 서버 응답 -->
+<!-- 전송방식 get : 주소줄에 값을 보이면 전달 -모든 하이퍼링크 ,기본 방식 -->
+<!--        post : http본문에 담아서 보이지 않게 전달 - form태그에서만 설정가능(보안상) -->
+             
+<!-- 사용자(웹브라우저)  -->
+<!-- 주소 http://localhost:8080/StudyJSP/js3/a.jsp?id=kim&pass=123 요청(보고싶다) -->
+<!-- http가 localhost:8080서버 찾아 감  a.jsp보고 싶다 요청 -->
+<!-- 웹서버(아파치)  a.jsp 찾아  .jsp 처리할 필요 있음 -->
+<!-- 웹애플리케이션서버(Web Application Server,WAS,웹컨테이너,톰캣) 전달   -->
+<!-- 처리담당서버 .jsp처리   -->
+<!-- => 1. request서버내장객체(기억장소)-http들고온 정보를 저장하는 객체 생성 -->
+<!--       response 응답정보 저장한 객체 생성 -->
+<!--    2. web.xml 참조 서버 설정값  -->
+<!--    3. 처리담당자(서블릿): request에 저장된 가져와서 처리  -->
+<!--                      doGet() , doPost() , service() 함수 자동 호출 처리 -->
+<!--                      처리결과를 response저장 웹서버에 보냄 -->
+<!-- => 처리결과 java(html출력) => 웹서버에 전달 => http에 전달 -->
+<!-- http 들고 사용자에 감 => 웹브라우저 화면 .jsp처리한결과 java(html출력) 보여줌 -->
+
+
+<!-- 웹서버 처리 결과 -->
+<!-- C:\Program Files\Apache Software Foundation\Tomcat 8.0\work\Catalina\localhost\ROOT -->
+<!-- test1.html -->
+<!-- test2.jsp => test2_jsp.java -->
+<!-- index.jsp => index_jsp.java -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

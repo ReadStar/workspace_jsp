@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+//웹브라우저 내장객체
+//window - location
+//			 - history
+//		 - document - image, link, layer
+//					- form - text, password, textrarea
+//							   - checkbox, radiobox
+//							   - select   - option
+//	history 방문기록을 저장하는 내장객체
+// window.history.변수 		history.length 방문기록 개수
+// window.history.함수()		history.back() 이전페이지 이동
+// 							history.forward() 다음페이지 이동
+//						history.go(-1) 이전페이지, history.go(1) 다음페이지
+
+// window.document.변수	document.title 문서제목 저장하는 변수
+// 						document.bgColor 문서배경 저장하는 변수
+// 						document.fgColor 문서글자색 저장하는 변수
+// 						document.linkColor 문서하이퍼링크색 저장하는 변수
+// window.document.함수() document.write() 문서에 내용을 출력
+// 						 document.open() 문서를 열어서 출력하기 위한 준비
+// 						 document.close() 문서 출력을 종료
+
+function fun1() {
+	alert(document.title);
+	//문서제목변경
+	document.title="제목";
+}
+function fun2() {
+	alert(document.bgColor);
+	document.bgColor='yellow';
+}
+document.write("문서내용 출력")
+
+function fun3(a) {
+	document.bgColor = a;
+}
+</script>
+<body>
+<h1>WebContent/js2/test4.html</h1>
+<input type="button" value="문서정보" onclick="fun1()">
+<input type="button" value="배경색" onclick="fun2()">
+<input type="radio" name="col" value="pink" onclick="fun3('pink')"> 부농
+<input type="radio" name="col" value="green" onclick="fun3('green')"> 초록
+<input type="radio" name="col" value="skyblue" onclick="fun3('skyblue')"> 하늘
+</body>
+</html>

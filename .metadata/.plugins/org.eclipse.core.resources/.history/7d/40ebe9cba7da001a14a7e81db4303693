@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>WebContent/jsp1/response.jsp</h1>
+<%
+// response 내장객체: WAS에서 처리를 하기 위해서 request, response기억장소 생성 처리 담당자 서블릿
+//									request정보를 가지고 처리함
+//									처리결과를 response기억장소에서 저장-> 웹서버 -> http -> 사용자 
+
+
+%>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//웹브라우저 내장객체
+// Window - location
+// 		  - history
+// 		  - document - image, link, layer...
+//					 - form - text, password, textarea
+//				  	 		- checkbox, radiobox
+//							- select - option
+
+// Window 내장객체 멤버변수 - window 특징(속성)을 저장하는 변수
+//			        멤버함수 - 메서드, window주제에  맞는 기능을 정의한 함수
+// window.변수  	window.opener 창을 열게한 정보를 저장하는 변수,
+// 				window.status 윈도우창 상태표시줄 값을 저장하는 변수
+// window.함수() window.open() 창(브라우저) 열기
+// 			    window.close() 창닫기
+function fun1() {
+// 	window.open("문서이름, 사이트주소","창이름","창크기, 위치, 옵션사항")
+	window.open("http://www.naver.com","window", "width=300, height=200, left=200, top=200, scrollbars=yes");
+	}
+function fun2() {
+	 //test_1.html 문서를 새창에서 열기
+	window.open("http://localhost:8080/StudyJSP/js2/test1_1.html","window", "width=400, height=300");	
+}
+function fun3() {
+	window.close();
+}
+</script>
+</head>
+<body>
+<h1>WebContent/js2.test1.html</h1>
+
+<input type = "button"	value="창열기"	onclick="fun1()">
+<input type = "button"	value="test1_1"	onclick="fun2()">
+<input type = "button"	value="창닫기"	onclick="fun3()">
+
+</body>
+</html>

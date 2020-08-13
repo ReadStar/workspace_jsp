@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+//웹브라우저 내장객체
+//window - location
+//			 - history
+//		 - document - image, link, layer
+//					- form - text, password, textrarea
+//							   - checkbox, radiobox
+//							   - select   - option
+
+//window.document.images[0].변수
+//		 document.images[0].src 이미지 파일이름 저장변수
+// 		 document.images[0].width 이미지 파일 너비 저장변수
+//		 document.images[0].height 이미지 파일높이 저장변수
+//		 document.images[0].border 이미지 파일 테두리 저장변수
+//window.document.images[0].함수()
+function fun1(){
+// 	alert(document.images[0].src);
+// 	alert(document.images[0].width);
+	alert(document.img1.src);
+	alert(document.img1.width);
+}
+function fun2(){
+// 	document.images[0].src="123.jpg";
+// 	document.images[0].height="400";
+	document.img1.src="4.jpg";
+	document.img1.width="400";
+}
+function fun3() {
+	//두번째 이미지를 src 3.jpg 변경 border 10 변경
+// 	document.images[1].src="3.jpg";
+// 	document.images[1].border="10";
+	document.img2.src="1234.jpg";
+	document.img2.border="10";
+}
+function fun4() {
+	//세번째 이미지 src 4.jpg 변경
+	document.img3.src="5.jpg";
+}
+function fun5() {
+	//세번째 이미지 src 3.jpg 변경
+	document.img3.src="6.jpg";
+}
+</script>
+</head>
+<body>
+<h1>WebContent/js2/test5.html</h1>
+<img src="123.jpg" width="300" height="200" border="5" name="img1">
+<input type="button" value="이미지 정보" onclick="fun1()">
+<input type="button" value="이미지 변경" onclick="fun2()">
+<img src="3.jpg" width="300" height="200" border="5" name="img2"
+		onclick="fun3()">
+<img src="1234.jpg" width="300" height="200" name="img3"
+		onmouseover="fun4()" onmouseout="fun5()">
+		
+
+</body>
+</html>

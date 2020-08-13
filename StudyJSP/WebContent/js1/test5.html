@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type = "text/javascript">
+//함수 정의 함수이름 msg() 인사말출력 안녕하세요
+//함수 정의 함수이름 cal() 사칙연산 출력 변수선언 10+20 - */
+//함수 정의 함수이름 cal2(a,b) 받은값을 가지고 사칙연산 출력
+function msg(){
+	alert("안녕하세요");
+	return;
+	}
+	
+function cal() {
+	a = 10;
+	b = 20;
+	alert(a+b);
+	alert(a-b);
+	alert(a*b);
+	alert(a/b);
+	return;
+}
+
+function cal2(a,b) {
+	alert("a의 값"+a);
+	alert("b의 값"+b);
+	alert(a+b);
+	alert(a-b);
+	alert(a*b);
+	alert(a/b);
+	return;
+	
+}
+// 함수 정의 함수이름 값은 전달 없이 리턴값만 전달 pi() 3.14 값 리턴
+function pi() {
+	return 3.14;
+	
+}
+
+//함수 정의 함수이름 rec(w,h) w,h를 이용해서 사각형의 면적을 구해서 리턴
+function rec(w,h) {
+	alert("너비 "+ w); alert("높이" + h);
+	var rec = w * h
+	return (rec);
+}
+//함수 정의 함수이름 insert(id,pass,name)	회원정보를 받아서 출력
+function insert(id, pass, name) {
+	alert(id);
+	alert(pass);
+	alert(name);
+	return;
+	
+}
+
+
+//함수 정의 함수이름 info(id)	 id를 받아서 id에 해당하는 회원벙보를 리턴
+function info(id) {
+	return id;
+	
+}
+//return "kim+p123+뫄뫄"
+</script>
+</head>
+<body>
+<h1>WebContent/js1/test5.html</h1>
+<input type="button"	value="인사말함수호출"	onclick="msg()">
+<input type="button"	value="사칙연산함수호출"	onclick="cal()">
+<input type="button"	value="사칙연산함수2호출"	onclick="cal2(5,10)">
+<input type="button"	value="사칙연산함수2호출"	onclick="cal2(7,5)">
+<input type="button"	value="pi"	onclick="alert('받은 값'+pi())">
+<input type="button"	value="원의 면적"	onclick="alert('반지름이 10인 원의 면적'+(10*10*pi()))">
+<input type="button"	value="사각형의 면적"	onclick="alert('사각형의 면적' + rec(10,30))">
+<input type="button"	value="삼각형의 면적"	onclick="alert('삼각형의 면적' + (rec(10,30)/2))">
+</body>
+<body>
+<h1>WebContent/js1/test5.html</h1>
+<input type= "button" value="회원가입"	onclick="insert('puppet', '123', '뫄뫄')">
+<input type="button"	value ="회원정보조회"	onclick="alert('조회된정보:'+info('puppet'))">
+
+</body>
+
+</html>

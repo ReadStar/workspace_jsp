@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+//웹브라우저 내장객체
+//window - location
+//			 - history
+//		 - document - image, link, layer
+//					- form - text, password, textrarea
+//							   - checkbox, radiobox
+//							   - select   - option
+//	history 방문기록을 저장하는 내장객체
+// window.history.변수 		history.length 방문기록 개수
+// window.history.함수()		history.back() 이전페이지 이동
+// 							history.forward() 다음페이지 이동
+//						history.go(-1) 이전페이지, history.go(1) 다음페이지
+function fun1() {
+	alert(history.length);
+}
+function fun2() {
+	alert("뒤로이동");
+	history.back();
+}
+function fun3() {
+	history.forward();
+}
+</script>
+<body>
+<h1>WebContent/js2/test3.html</h1>
+<input type="button" value="방문기록개수" onclick="fun1()">
+<input type="button" value="이전페이지 이동" onclick="fun2()">
+<input type="button" value="다음페이지 이동" onclick="fun3()">
+</body>
+</html>

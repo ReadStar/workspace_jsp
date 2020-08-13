@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>WebContent/jsp1/session.jsp</h1>
+<%
+//session내장객체 : 서버와 클라이언트 연결정보를 서버 저장 내장객체
+%>
+</body>
+</html>

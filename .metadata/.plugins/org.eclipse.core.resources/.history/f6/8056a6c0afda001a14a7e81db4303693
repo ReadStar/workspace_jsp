@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>WebContent/jsp1/session.jsp</h1>
+<%
+//session내장객체 : 서버와 클라이언트 연결정보를 서버 저장 내장객체
+//30분간 아무런 작없이 없을때 저장된 값이 사라짐.
+//								서버와 연결 동시에 세션ID부여됨. 
+//세션삭제 : 1. 브라우저 창 모두 닫으면 세선삭제
+//				   2. 세션유지시간 30분 설정, 
+%>
+세션ID : <%=session.getId() %><br>
+세션생성시간 : <%=session.getCreationTime() %><br>
+세션마지막접근시간 : <%=session.getLastAccessedTime()  %><br>

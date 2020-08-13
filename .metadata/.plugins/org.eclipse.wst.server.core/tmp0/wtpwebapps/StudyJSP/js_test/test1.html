@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function check() {
+	if(document.getElementById('namee').value.length == ""){
+		alert("이름 비어있음");
+		document.fr.name.focus();
+		return false;
+ 	}if(document.getElementById('123').value.length !==6 ){
+ 		alert("주민등록 앞 번호 6자리 확인");
+ 		document.fr.fnum.focus();
+ 		return false;
+ 	}if(document.getElementById('456').value.length !==7){
+ 		alert("주민등록 뒷 번호 7자리 확인");
+ 		document.fr.bnum.focus();
+ 		return false;
+ 	}if(!(document.getElementById('idd').value.length >= 4 &&
+ 			document.getElementById('idd').value.length <= 10)){
+ 		alert("ID는 4~10자리 입니다.");
+ 		document.fr.id.focus();
+ 		return false;
+ 	}if(!(document.getElementById('passd').value.length >= 4 &&
+ 			document.getElementById('passd').value.length <= 10)){
+ 		alert("비밀번호는 4~10자리 입니다.");
+ 		document.fr.pass.focus();
+ 		return false;
+ 	}if(!(document.getElementById('pasd').value == 
+ 		document.getElementById('passd').value)){
+ 		alert("비밀번호 불일치.");
+ 		document.fr.pas.focus();
+ 		return false;
+ 	}if(document.getElementById('numm').value == ""){
+		alert("전화번호 비어있음");
+		document.fr.num.focus();
+		return false;
+ 	}if(document.fr.members.options[0].selected == true){
+    	alert("회원분류를 선택하세요");
+    	document.fr.members.focus();
+    	return false;	
+	}
+}
+function fun1() {
+	alert("중복확인완료");
+}
+function fun2() {
+	document.fr.action = "test2.html"
+	document.fr.submit();
+}
+</script>
+</head>
+<body>
+<h2>Registration</h2>
+<h4>회원가입 양식</h4>
+
+*표시는 반드시 입력하셔야 합니다.<br>
+<form action="a.jsp" method="get" name="fr" onsubmit="return check()">
+*이름 <input type="text" name = "name" id="namee"><br>
+*주민등록 번호<textarea rows="1" cols="10" name = "fnum" id = "123"></textarea> - 
+<textarea rows="1" cols="10" name = "bnum" id = "456"></textarea><br>
+* 회원 Id <input type="text" name = "id" id = "idd">
+		<input type="button" value="중복확인" onclick ="fun1()"><br> 
+*비밀번호 <input type="text" name = "pass" id="passd"><br>
+*비밀번호 확인 <input type="text" name = "pas" id="pasd"><br>
+E-mail <input type="text" name = "mail"	 id= "maild"><br>
+*전화번호 <input type="text" name = "num" id = "numm"><br>
+핸드폰번호 <input type="text" name = "phone" id="phonee"><br>
+우편번호 <textarea rows="1" cols="4"></textarea>-
+	  <textarea rows="1" cols="4"></textarea>
+	  <input type="button" value="검색"  onclick="fun2()"><br>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  <textarea rows="1" cols="40"></textarea><br>
+상세주소 <input type="text" name="adress"><br>
+*회원분류 <select name="members">
+			<option value="">선택해주십시오</option>
+			<option value="1">일반</option>
+			<option value="2">학생</option>
+			<option value="3">기타</option>
+			</select><br>
+<input type="submit" value="가입" >
+<input type="submit" value="취소">
+</form>
+</body>
+</html>

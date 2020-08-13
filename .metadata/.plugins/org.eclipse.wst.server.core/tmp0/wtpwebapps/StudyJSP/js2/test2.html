@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//웹브라우저 내장객체
+	//window - location
+// 			 - history
+	//		 - document - image, link, layer
+	//					- form - text, password, textrarea
+// 							   - checkbox, radiobox
+// 							   - select   - option
+//window 생략가능 location : 웹브라우저 줄입력 하는 곳을 객체로 정의
+// window.location.변수 location.href : 웹브라우저 주소의 값을 저장하는 변수
+// 				   location.protocol : 주소 중에 전송통신 규약
+// 				   location.hostname : 서버이름
+// 				   location.port : 포트번호
+// 				   location.host : 서버이름 + 포트번호
+// window.location.함수()	location.reload() : 새로고침(F5)
+// 						location.replace() : 새로운 문서 불러오기
+function fun1(){
+	//location.href : 웹브라우저 주소의 값을 저장하는 변수
+	alert(location.href);
+	//location.href 변수 주소 변경
+	// a=10
+	location.href = "http://www.naver.com";
+}
+function fun2(){
+	//http://localhost:8080/studyJSP/js2/test2.html
+	alert("통신규약protocol -"+location.protocol); 
+	//http: html문서를 전송하는 proctocol(통신규약)
+	alert("웹 서버이름 :"+location.hostname); //localhost
+	alert("웹서버포트:"+location.port); //8080
+	alert("웹서버이름:"+location.host); //localhost:8080
+}
+function fun3() {
+// 	//메시지 "test1.html페이지이동"
+// 	//주소값을 test1.html 변경
+	alert("test1.html 이동");
+	location.href="test1.html";
+}
+function fun4() {
+	//새로고침 F5
+	location.reload();
+}
+
+function fun5() {
+	//기존문서를 제거하고 새로운 문서가져오기
+	location.replace("test1.html");
+}
+</script>
+</head>
+<body>
+<h1>WebContent/js2.test2.html</h1>
+<input type = "button" value = "웹브라우저 내용" onclick = "fun1()">
+<input type = "button" value = "웹브라우저 상세주소내용" onclick = "fun2()">
+<input type = "button" value = "test1.html 페이지이동" onclick = "fun3()">
+<input type = "button" value = "새로고침" onclick = "fun4()">
+<input type = "button" value = "새로운 문서가져오기" onclick = "fun5()">
+</body>
+</html>
