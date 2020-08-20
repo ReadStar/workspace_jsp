@@ -1,4 +1,0 @@
-<%
-//WebContent/jsp1/includeFile.jsp
-String color1 = "yellow"
-%>

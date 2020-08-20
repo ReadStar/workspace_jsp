@@ -1,0 +1,21 @@
+<%@page import="java.sql.DriverManager" %>
+    <%@page import="java.sql.Connection" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+Class.forName("com.mysql.jdbc.Driver");
+String dbUrl="jdbc:mysql://localhost:3306/jspDB1";
+String dbUser="root";
+String dbPass=63520321;
+Connection con=DriverManager.getConnection(dbUrl, dbUser, dbPass);
+%>
+연결성
+</body>
+</html>

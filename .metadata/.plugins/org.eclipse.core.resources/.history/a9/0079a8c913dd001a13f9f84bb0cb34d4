@@ -1,6 +1,0 @@
-<%
-//WebContent/jsp1/includeFile.jsp
-String color1 = "yellow";
-String color2 = "Pink";
-String color3 = "skyblue";
-%>
