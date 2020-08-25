@@ -11,8 +11,8 @@
 <h1>WebContent/jsp4/logout.jsp</h1>
 <%
 //세션값 전체 삭제
-session.invalidate();
-//로그아웃
+Session.invalidate();
+//로그아웃>
 //메인.jsp이동
 %>
 <script type="text/javascript">

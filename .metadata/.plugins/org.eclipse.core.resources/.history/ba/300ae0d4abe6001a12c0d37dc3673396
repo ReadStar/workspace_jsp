@@ -12,7 +12,7 @@
 <%
 //세션값 전체 삭제
 session.invalidate();
-//로그아웃
+//로그아웃>
 //메인.jsp이동
 %>
 <script type="text/javascript">
