@@ -14,7 +14,7 @@
 <h1>WebContent/jsp4/info.jsp</h1>
 <h2>나의 정보 조회</h2>
 <%
-//로그인한 사용자 
+//로그인한 사용자 세션값 가져오기
 String id = (String)session.getAttribute("id");
 request.setCharacterEncoding("utf-8");
 //드라이버 정보 가져오기
@@ -38,5 +38,6 @@ if(rs.next()){
 		<%
 }
 %>
+<a href=main.jsp></a>
 </body>
 </html>

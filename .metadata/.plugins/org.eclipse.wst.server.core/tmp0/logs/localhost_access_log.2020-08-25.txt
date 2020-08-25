@@ -232,3 +232,6 @@
 0:0:0:0:0:0:0:1 - - [25/Aug/2020:17:37:29 +0900] "GET /StudyJSP/jsp4/info.jsp HTTP/1.1" 200 301
 0:0:0:0:0:0:0:1 - - [25/Aug/2020:17:37:32 +0900] "POST /StudyJSP/jsp4/loginPro.jsp HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [25/Aug/2020:17:37:32 +0900] "GET /StudyJSP/jsp4/main.jsp HTTP/1.1" 200 447
+0:0:0:0:0:0:0:1 - - [25/Aug/2020:20:33:14 +0900] "GET /StudyJSP/jsp4/updateForm.jsp HTTP/1.1" 404 815
+0:0:0:0:0:0:0:1 - - [25/Aug/2020:20:33:31 +0900] "GET /StudyJSP/jsp4/deleteForm.jsp HTTP/1.1" 404 815
+0:0:0:0:0:0:0:1 - - [25/Aug/2020:20:33:43 +0900] "GET /StudyJSP/jsp4/list.jsp HTTP/1.1" 404 809

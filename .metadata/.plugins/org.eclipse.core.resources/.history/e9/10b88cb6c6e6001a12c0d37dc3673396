@@ -38,6 +38,5 @@ if(rs.next()){
 		<%
 }
 %>
-<a href=main.jsp></a>
 </body>
 </html>
