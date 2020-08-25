@@ -1,0 +1,41 @@
+<%@page import="java.sql.CallableStatement" %>
+<%@page import="java.sql.PreparedStatement" %>
+<%@page import="java.sql.Statement" %>
+<%@page import="java.sql.Connection" %>
+<%@page import="java.sql.DriverManager" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>WebContent/jsp3/select.jsp</h1>
+<h3>학생목</h3>
+<%
+//JDBC 가져오기
+request.setCharacterEncoding("utf-8");
+int num=Integer.parseInt(request.getParameter("num"));
+String name=request.getParameter("name");
+Class.forName("com.mysql.jdbc.Driver");
+//DB연
+String dbUrl="jdbc:mysql://localhost:3306/jspDB1?serverTimezone=UTC";
+String dbUser="root";
+String dbPass="63520321";
+Connection con=DriverManager.getConnection(dbUrl, dbUser, dbPass);
+//sql구문
+String sql="selece * from student";
+PreparedStatement pstmt=con.prepareStatement(sql);
+//select 결과저장
+ResulteSet rs = pstmt.executeQuery();
+
+
+%>
+<table border="1">
+<tr><td>학생번호</td><td>학생이름</td></tr>
+<tr><td>학생번호></td><td>학생이름</td></tr>
+</table>
+</body>
+</html>
