@@ -30,7 +30,7 @@ if(rs.next()==true){
 	out.println("아이디 있음");
 	if(pass.equals(rs.getString("pass"))){
 		out.println("비밀번호 맞음");
-		//세션값 부여(생성) : 페이지 상관없이 값을 유지 이름 , 깞 "id",id
+		//세션값 부여(생성) : 페이지 상관없이 값을 유지 이름 , 값 "id",id
 		session.setAttribute("id", id);
 		response.sendRedirect("main.jsp");
 	}else{

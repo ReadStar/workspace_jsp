@@ -1,0 +1,49 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>WebContent/jsp4/updateForm.jsp</h1>
+<%
+//세션값가져오기
+String id = (String)session.getAttribute("id");
+String pass =(String)session.getAttribute("pass");
+// JDBC Driver 가져오기
+Class.forName("com.mysql.jdbc.Driver");
+// DriverManager 가지고 DB접속
+String dbUrl="jdbc:mysql://localhost:3306/jspDB1?serverTimezone=UTC";
+String dbUser="jspid";
+String dbPass="jsppass";
+Connection con=DriverManager.getConnection(dbUrl, dbUser, dbPass);
+//sql구문 만들기
+String sql="select *from member where id=? && pass=?";
+PreparedStatement pstmt=con.prepareStatement(sql);
+pstmt.setString(1, id);
+pstmt.setString(2, pass);
+//sql구문 실행 => 결과 저장
+ResultSet rs=pstmt.executeQuery();
+// 결과저장 => 출력
+// rs.next()이동 했을때 데이터가 있으면 True / 데이터가 없으면 false
+if(rs.next()){
+	%>
+	<%=rs.getString("id")%>
+	<%=rs.getString("pass")%>
+	<%
+}
+%>
+<form action="updatePro.jsp" method="post">
+아이디 : <input type="text" name="id" value="<%=%>" readonly><br>
+비밀번호 : <input type="text" name="pass"><br>
+이름 : <input type="text" name="name" value="<%= %>" ><br>
+<input type="submit" value="회원정보수정">
+</form>
+</body>
+</html>
