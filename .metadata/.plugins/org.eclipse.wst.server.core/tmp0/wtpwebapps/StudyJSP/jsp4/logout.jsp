@@ -17,7 +17,7 @@ session.invalidate();
 %>
 <script type="text/javascript">
 alert("로그아웃");
-location.href="main.jsp";
+location.href="loginForm.jsp";
 </script>
 </body>
 </html>

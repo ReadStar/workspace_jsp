@@ -31,6 +31,9 @@ if(rs.next()==true){
 	if(pass.equals(rs.getString("pass"))){
 		out.println("비밀번호 맞음");
 		//세션값 부여(생성) : 페이지 상관없이 값을 유지 이름 , 값 "id",id
+		%><script type="text/javascript">
+	alert("로그인성공");
+	</script><%
 		session.setAttribute("id", id);
 		response.sendRedirect("main.jsp");
 	}else{
@@ -51,8 +54,5 @@ if(rs.next()==true){
 	<%
 }
 %>
-<script type="text/javascript">
-	alert("로그인성공");
-</script>
 </body>
 </html>
