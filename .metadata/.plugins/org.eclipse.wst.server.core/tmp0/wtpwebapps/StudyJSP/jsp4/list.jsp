@@ -15,25 +15,32 @@
 <%
 request.setCharacterEncoding("utf-8");
 String id = (String)session.getAttribute("id");
+if(id == null){
+	response.sendRedirect("loginForm.jsp");
+}else{
+	if(!id.equals("admin")){
+	response.sendRedirect("loginForm.jsp");
+	}
+}
 Class.forName("com.mysql.jdbc.Driver");
 String dbUrl="jdbc:mysql://localhost:3306/jspDB1?serverTimezone=UTC";
 String dbUser="jspid";
 String dbPass="jsppass";
 Connection con=DriverManager.getConnection(dbUrl, dbUser, dbPass);
-String sql="select *from member where id=? and pass=? and name=?? and date";
-
+String sql="select *from member";
 PreparedStatement pstmt=con.prepareStatement(sql);
-pstmt.setString(1, id);
-ResultSet rs=pstmt.execZ¸uteQuery();
+ResultSet rs=pstmt.executeQuery();
 %>
 
 <table border="1">
-<tr><td>아이디</td><td>비밀번호</td><td>이름</td><td>가입일</td></tr>
+<tr><td>아이디</td><td>비밀번호</td><td>이름</td><td>가입일자</td></tr>
 <%
 while(rs.next()){
 %>
-<tr><td><%=rs.getString("id") %></td><td><%=rs.getString("pass") %></td>
-		<td><%=rs.getString("name") %></td><td><%rs.getTimestamp("date");%></td></tr>
+<tr><td><%=rs.getString("id") %></td>
+<td><%=rs.getString("pass") %></td>
+<td><%=rs.getString("name") %></td>
+<td><%=rs.getTimestamp("date") %></td></tr>
 <%
 }
 	%>
