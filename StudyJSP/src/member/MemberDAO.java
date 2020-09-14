@@ -102,6 +102,6 @@ public MemberBean getMember(String id) {
 			
 		}
 	return mb;
-
+	
 	}
 }//클래스
