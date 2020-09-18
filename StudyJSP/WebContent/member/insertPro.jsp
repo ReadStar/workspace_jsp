@@ -65,9 +65,9 @@ mdb.insertMember(mb);
 // pstmt.executeUpdate();
 //<%-- 등록 성공 : <%=pstmt
 %>
-<!-- <!-- <script type="text/javascript"> --> -->
-<!-- // 	alert("회원가입성공"); -->
-<!-- // 	location.href="loginForm.jsp" -->
-<!-- </script> -->
+<script type="text/javascript">
+	alert("회원가입성공");
+	location.href="loginForm.jsp"
+</script>
 </body>
 </html>

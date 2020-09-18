@@ -11,7 +11,7 @@
 <%
 String id = (String)session.getAttribute("id");
 if(id == null){
-	response.sendRedirect("login.jsp");
+	response.sendRedirect("loginForm.jsp");
 }
 %>
 <%=session.getAttribute("id") %>님 로그인 하셨습니다.

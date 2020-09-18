@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="/Users/enril/Desktop/Java/workspace_jsp_11/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ROOT" path="" reloadable="false"/><Context docBase="/Users/enril/Desktop/Java/workspace_jsp_11/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/StudyJSP" path="/StudyJSP" reloadable="true" source="org.eclipse.jst.jee.server:StudyJSP"/></Host>
+      <Context docBase="/Users/enril/Desktop/Java/workspace_jsp_11/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ROOT" path="" reloadable="false"/><Context docBase="/Users/enril/Desktop/Java/workspace_jsp_11/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/StudyJSP" path="/StudyJSP" reloadable="true" source="org.eclipse.jst.jee.server:StudyJSP"/><Context docBase="/Users/enril/Desktop/Java/workspace_jsp_11/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/FunWeb" path="/FunWeb" reloadable="true" source="org.eclipse.jst.jee.server:FunWeb"/></Host>
     </Engine>
   </Service>
 </Server>
