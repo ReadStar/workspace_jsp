@@ -17,6 +17,7 @@
 	<td><textarea name="content" rows="10" cols="20"></textarea></td></tr>
 <tr><td colspan="2"><input type="submit" value="글쓰기"></td></tr>
 </table>
+
 </form>
 </body>
 </html>

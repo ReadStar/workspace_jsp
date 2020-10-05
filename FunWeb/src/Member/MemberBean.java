@@ -6,14 +6,12 @@ public class MemberBean {
 	private String id;
 	private String pass;
 	private String name;
-	private String email;
-	private String address;
-	private String phone;
-	private String mobile;
 	private Timestamp date;
-	public Timestamp getDate() {
-		return date;
-	}
+	private String email; 
+	private String address; 
+	private String phone; 
+	private String mobile;
+	
 	public String getId() {
 		return id;
 	}
@@ -31,6 +29,12 @@ public class MemberBean {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public Timestamp getDate() {
+		return date;
+	}
+	public void setDate(Timestamp date) {
+		this.date = date;
 	}
 	public String getEmail() {
 		return email;
@@ -56,7 +60,7 @@ public class MemberBean {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	public void setDate(Timestamp date) {
-		this.date = date;
-	}
+	
+	
+	
 }

@@ -1,3 +1,7 @@
+<%@page import="java.util.List"%>
+<%@page import="Board.BoardBean"%>
+<%@page import="Board.BoardDAO"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -33,29 +37,23 @@
 <!-- 헤더파일들어가는 곳 -->
 <!-- 메인이미지 들어가는곳 -->
 <div class="clear"></div>
-<div id="main_img"><img src="../images/main_img.jpg"
- width="971" height="282"></div>
+<!-- <div id="main_img"><img src="../images/main_img.jpg" -->
+<!--  width="971" height="282"></div> -->
 <!-- 메인이미지 들어가는곳 -->
 <!-- 메인 콘텐츠 들어가는 곳 -->
 <article id="front">
 <div id="solution">
 <div id="hosting">
 <h3>Web Hosting Solution</h3>
-<p>Lorem impsun Lorem impsunLorem impsunLorem
- impsunLorem impsunLorem impsunLorem impsunLorem
-  impsunLorem impsunLorem impsun....</p>
+<p>내용</p>
 </div>
 <div id="security">
 <h3>Web Security Solution</h3>
-<p>Lorem impsun Lorem impsunLorem impsunLorem
- impsunLorem impsunLorem impsunLorem impsunLorem
-  impsunLorem impsunLorem impsun....</p>
+<p>내용</p>
 </div>
 <div id="payment">
 <h3>Web Payment Solution</h3>
-<p>Lorem impsun Lorem impsunLorem impsunLorem
- impsunLorem impsunLorem impsunLorem impsunLorem
-  impsunLorem impsunLorem impsun....</p>
+<p>내용</p>
 </div>
 </div>
 <div class="clear"></div>
@@ -63,30 +61,41 @@
 <h3><span class="orange">Security</span> News</h3>
 <dl>
 <dt>Vivamus id ligula....</dt>
-<dd>Proin quis ante Proin quis anteProin 
-quis anteProin quis anteProin quis anteProin 
-quis ante......</dd>
+<dd>내용</dd>
 </dl>
 <dl>
 <dt>Vivamus id ligula....</dt>
-<dd>Proin quis ante Proin quis anteProin 
-quis anteProin quis anteProin quis anteProin 
-quis ante......</dd>
+<dd>내용</dd>
 </dl>
 </div>
 <div id="news_notice">
 <h3 class="brown">News &amp; Notice</h3>
 <table>
-<tr><td class="contxt"><a href="#">Vivans....</a></td>
+<%
+BoardDAO bdao = new BoardDAO();
+int pageSize = 5;
+int startRow = 1;
+List boardList = bdao.getBoardList(startRow, pageSize);
+SimpleDateFormat sdf=new SimpleDateFormat("yy.mm.dd");
+for(int i=0; i<boardList.size(); i++){
+	BoardBean bb=(BoardBean)boardList.get(i);
+	%>
+<tr><td class="contxt"><a href="../center/content.jsp?num=<%=bb.getNum()%>"><%=bb.getSubject() %></a></td>
     <td>2012.11.02</td></tr>
-<tr><td class="contxt"><a href="#">Vivans....</a></td>
-    <td>2012.11.02</td></tr>
-<tr><td class="contxt"><a href="#">Vivans....</a></td>
-    <td>2012.11.02</td></tr>
-<tr><td class="contxt"><a href="#">Vivans....</a></td>
-    <td>2012.11.02</td></tr>
-<tr><td class="contxt"><a href="#">Vivans....</a></td>
-    <td>2012.11.02</td></tr>
+    <%
+}
+// request.setCharacterEncoding("utf-8");
+// //int num 파라미터 값 가져오기
+// int num=Integer.parseInt(request.getParameter("num"));
+// SimpleDateFormat sdf=new SimpleDateFormat("yy.MM.dd");
+// //BoardDAO bdao 객체생성
+// BoardDAO bdao = new BoardDAO();
+// //조회수 증가 메서드 만들고 호출
+// bdao.updateReadcount(num);
+// //리턴할형 BoardBean bb = getBoard(num) 메서드 만들고 호출
+// BoardBean bb=bdao.getBoard(num);
+%>
+<%-- <tr><td class="contxt"> <td><a href="content.jsp?num="><%=bb.getSubject() %></a></td></tr> --%>
 </table>
 </div>
 </article>

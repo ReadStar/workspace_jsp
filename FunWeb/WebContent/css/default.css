@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 body {
-	background-color: #898989; margin: 0px;
+	background-color: #ffffff; margin: 0px;
 	padding: 0px; font-size: 0.75em;
 	line-height: 1.2em; color: #333;
 }/*배경색 #898989 밖여백 0 안여백 0 글자크기 0.75em
@@ -9,8 +9,9 @@ body {
 	width: 971px; text-align: left;
 	margin: 0;margin-right: auto;margin-left: auto;
 	min-height: 780px;
-	background-image: url("../images/shadow.png");
-	background-repeat: repeat-y;
+	background-color: #ffffff;
+/* 	background-image: url("../images/shadow.png"); */
+/* 	background-repeat: repeat-y; */
 }/*너비 : 971px 글자정렬 left 밖여백 0 
 밖오른쪽여백 auto 밖왼쪽여백 auto  최소높이 780px
 배경이미지 shadow.png 배경이미지반복 y*/
@@ -29,7 +30,7 @@ font-size: 12px;word-spacing: 5px}
 /*정렬 왼쪽 너비 265px 밖여백 60px 0 0 40px*/
 header{height: 151px;margin: 0px;padding: 0px}
 /*높이 151px 밖여백 0 안여백 0*/
-nav#top_menu{width: 600px; margin: 50px 20px 0 0;
+nav#top_menu{width: 600px; margin: 50px 0 0 50px;
 float: right;}
 /*너비 600px 밖여백 50px 20px 0 0 정렬 오른쪽*/
 nav#top_menu ul{list-style:none;
@@ -37,7 +38,7 @@ font-family: verdana,Geneba,sans-serif;
 font-size: 13px;font-weight: 100;color: #333}
 /*스타일없음 글자체 verdana,Geneba,sans-serif 
 글자크기 13px 글자굵기 100 글자색 #333*/
-nav#top_menu li{float: left;margin: 0 5px;}
+nav#top_menu li{float: left;margin: 0 20px;}
 /*정렬 왼쪽 밖여잭 0 5px*/
 nav#top_menu a{display: block; height: 20px;
 padding: 10px; text-decoration: none;color: #333}

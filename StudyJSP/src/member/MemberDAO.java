@@ -4,6 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import board.BoardBean;
+
 
 public class MemberDAO {
 	//1,2 디비연결 메서드
@@ -177,4 +182,27 @@ public void deleteMember(String id, String pass) {
 		//마무리
 	}
 }
+public List getMemberList() {
+	List memberList = new ArrayList();
+	try{
+		Connection con =getConnection();
+		String sql="select *from member order by date desc";
+		 PreparedStatement pstmt=con.prepareStatement(sql);
+		 ResultSet rs = pstmt.executeQuery();
+		 while(rs.next()){
+			 MemberBean mb = new MemberBean();
+			 mb.setId(rs.getNString("id"));
+			 mb.setName(rs.getString("name"));
+			 mb.setPass(rs.getString("pass"));
+			 mb.setDate(rs.getTimestamp("date"));
+			 //배열에 첫번째 칸에 저장
+			 memberList.add(mb);
+		 }
+	}catch(Exception e){
+		e.printStackTrace();
+	}finally{
+			
+		}
+	return memberList;
+	}
 }//클래스

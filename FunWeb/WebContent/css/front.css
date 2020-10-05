@@ -89,7 +89,7 @@ border-bottom-color: #999}
 글자정렬 왼쪽 글자색 #333*/
 #news_notice a{color: #333;text-decoration: none;}
 /*글자색 #333 밑줄 없음*/
-#news_notice a:hover{color: #F90;
+#news_notice a:hover{color: #FFFFFF;
 text-decoration: none;}/*글자색 #F90 밑줄 none*/
 
 

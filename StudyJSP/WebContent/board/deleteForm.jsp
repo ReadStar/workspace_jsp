@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>WebContent/jsp5/deleteForm.jsp</h1>
+<h1>WebContent/board/deleteForm.jsp</h1>
 <%
 // int num 파라미터 가져오기
 int num=Integer.parseInt(request.getParameter("num"));

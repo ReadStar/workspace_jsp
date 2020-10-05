@@ -153,7 +153,9 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="/Users/enril/Desktop/Java/workspace_jsp_11/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ROOT" path="" reloadable="false"/><Context docBase="/Users/enril/Desktop/Java/workspace_jsp_11/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/StudyJSP" path="/StudyJSP" reloadable="true" source="org.eclipse.jst.jee.server:StudyJSP"/><Context docBase="/Users/enril/Desktop/Java/workspace_jsp_11/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/FunWeb" path="/FunWeb" reloadable="true" source="org.eclipse.jst.jee.server:FunWeb"/></Host>
+      <Context docBase="/Users/enril/Desktop/Java/workspace_jsp_11/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ROOT" path="" reloadable="false"/><Context docBase="/Users/enril/Desktop/Java/workspace_jsp_11/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/StudyJSP" path="/StudyJSP" reloadable="true" source="org.eclipse.jst.jee.server:StudyJSP"/><Context docBase="/Users/enril/Desktop/Java/workspace_jsp_11/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/FunWeb" path="/FunWeb" reloadable="true" source="org.eclipse.jst.jee.server:FunWeb">
+	<Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" name="jdbc/MysqlDB" password="jsppass" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jspDB1?serverTimezone=UTC" username="jspid"/>					
+</Context></Host>
     </Engine>
   </Service>
 </Server>

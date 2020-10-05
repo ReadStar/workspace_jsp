@@ -1,3 +1,11 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="Board.BoardBean"%>
+<%@page import="java.util.List"%>
+<%@page import="Board.BoardDAO"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -36,66 +44,125 @@
 <!-- 왼쪽메뉴 -->
 <nav id="sub_menu">
 <ul>
-<li><a href="#">Notice</a></li>
-<li><a href="#">Public News</a></li>
-<li><a href="#">Driver Download</a></li>
-<li><a href="#">Service Policy</a></li>
+<li><a href="notice.jsp">Notice</a></li>
+<li><a href="fnotice.jsp">ReView</a></li>
+<li><a href="#">Pic</a></li>
 </ul>
 </nav>
 <!-- 왼쪽메뉴 -->
- 
+
+<%
+BoardDAO bdao = new BoardDAO();
+
+int count=bdao.getBoardCount();
+//한페이지에 보여줄 글 개수설정
+int pageSize=10;
+//현 페이지 번호 가져오기
+
+//pageNum 파라미터 가져오기
+String pageNum=request.getParameter("pageNum");
+//pageNum 없으면 "1"페이지 설정
+if(pageNum==null){
+	pageNum="1";
+}
+//시작하는 행번호 구하기
+int currentPage=Integer.parseInt(pageNum);
+//int startRow= currentPage pageSize 이용한 계산식
+//current Page pageSize => startRow
+//					1			10		=>		0*10+1 => 1
+//					2			10		=>		1*10+1 => 11
+//					3			10		=>		2*10+1 => 21
+int startRow = (currentPage-1)*pageSize+1;
+//String sql="select *from board order by num desc limit ?, ?"; //limit 구문은 mysql만
+//?startRow -1 ? pageSize 
+//날짜를 원하는 모양으로 변경하는 문자열 결과값
+List boardList=bdao.getBoardList(startRow, pageSize);
+SimpleDateFormat sdf=new SimpleDateFormat("yy.MM.dd");
+%> 
 <!-- 게시판 -->
 <article>
 <h1>Notice</h1>
 <table id="notice">
-<tr><th class="tno">No.</th>
-    <th class="ttitle">Title</th>
-    <th class="twrite">Writer</th>
-    <th class="tdate">Date</th>
-    <th class="tread">Read</th></tr>
-<tr><td>15</td><td class="left">Vivanus viveer portitor commodo.</td>
-    <td>Host Admin</td><td>2012.11.06</td><td>15</td></tr>
-<tr><td>14</td><td class="left">Vivanus viveer portitor commodo.</td>
-    <td>Host Admin</td><td>2012.11.06</td><td>15</td></tr>
-<tr><td>13</td><td class="left">Vivanus viveer portitor commodo.</td>
-    <td>Host Admin</td><td>2012.11.06</td><td>15</td></tr>
-<tr><td>12</td><td class="left">Vivanus viveer portitor commodo.</td>
-    <td>Host Admin</td><td>2012.11.06</td><td>15</td></tr>
-<tr><td>11</td><td class="left">Vivanus viveer portitor commodo.</td>
-    <td>Host Admin</td><td>2012.11.06</td><td>15</td></tr>
-<tr><td>10</td><td class="left">Vivanus viveer portitor commodo.</td>
-    <td>Host Admin</td><td>2012.11.06</td><td>15</td></tr>
-<tr><td>9</td><td class="left">Vivanus viveer portitor commodo.</td>
-    <td>Host Admin</td><td>2012.11.06</td><td>15</td></tr>
-<tr><td>8</td><td class="left">Vivanus viveer portitor commodo.</td>
-    <td>Host Admin</td><td>2012.11.06</td><td>15</td></tr>
-<tr><td>7</td><td class="left">Vivanus viveer portitor commodo.</td>
-    <td>Host Admin</td><td>2012.11.06</td><td>15</td></tr>
-<tr><td>6</td><td class="left">Vivanus viveer portitor commodo.</td>
-    <td>Host Admin</td><td>2012.11.06</td><td>15</td></tr>
-<tr><td>5</td><td class="left">Vivanus viveer portitor commodo.</td>
-    <td>Host Admin</td><td>2012.11.06</td><td>15</td></tr>
-<tr><td>4</td><td class="left">Vivanus viveer portitor commodo.</td>
-    <td>Host Admin</td><td>2012.11.06</td><td>15</td></tr>
-<tr><td>3</td><td class="left">Vivanus viveer portitor commodo.</td>
-    <td>Host Admin</td><td>2012.11.06</td><td>15</td></tr>
-<tr><td>2</td><td class="left">Vivanus viveer portitor commodo.</td>
-    <td>Host Admin</td><td>2012.11.06</td><td>15</td></tr>
-<tr><td>1</td><td class="left">Vivanus viveer portitor commodo.</td>
-    <td>Host Admin</td><td>2012.11.06</td><td>15</td></tr>    
+<!-- <tr><th class="tno">No.</th> -->
+<!--     <th class="ttitle">Title</th> -->
+<!--     <th class="twrite">Writer</th> -->
+<!--     <th class="tdate">Date</th> -->
+<!--     <th class="tread">Read</th></tr> -->
+<tr><th class="tno">번호</th><th class="ttitle">제목</th><th class="twrite">작성자</th>
+<th class="tdate">게시일</th><th class="tread">조회수</th></tr>
+
+<!-- <tr><td>번호</td><td>제목</td><td>작성자</td><td>날짜</td><td>조회수</td> -->
+<%
+for(int i = 0 ; i < boardList.size() ; i++){
+	//배열 한칸에서 게시판 글 하나 가져오기
+	BoardBean bb = (BoardBean)boardList.get(i);
+
+%>
+			<tr><td><%=bb.getNum() %></td>
+			 <td><a href="content.jsp?num=<%=bb.getNum() %>"><%=bb.getSubject() %></a></td>
+			 <td><%=bb.getName() %></td><td><%=sdf.format(bb.getDate()) %></td>
+			 <td><%=bb.getReadcount() %></td>
+<%
+}
+%>
 </table>
 <div id="table_search">
+<form action="noticeSearch.jsp" method="post">
 <input type="text" name="search" class="input_box">
-<input type="button" value="search" class="btn">
+<input type="submit" value="search" class="btn">
+</form>
+<%
+String id=(String)session.getAttribute("id");
+if(id!=null){
+	%><input type="button" value="Write" class="btn" onclick="location.href='writeForm.jsp'"><%
+}
+%>
 </div>
 <div class="clear"></div>
 <div id="page_control">
-<a href="#">Prev</a>
-<a href="#">1</a><a href="#">2</a><a href="#">3</a>
-<a href="#">4</a><a href="#">5</a><a href="#">6</a>
-<a href="#">7</a><a href="#">8</a><a href="#">9</a>
-<a href="#">10</a>
-<a href="#">Next</a>
+<%
+//한 화면에 보여줄 페이지 개수 설정
+int pageBlock=10;
+//시작하는 페이지번호 구하기
+//페이지번호 pageBlock => startPage
+// 1~10				10	   =>			(0~9) / 10*10+1=>0*10+1=>0+1=1
+//11~20				20      =>		   (10~19) / 10*10+1=>1*10+1=>10+1=11
+int startPage=(currentPage-1)/pageBlock*pageBlock+1;
+
+//끝나는 페이지 구하기
+//시작페이지번호		pageBlock		=>	endPage
+//			1							10			=>		 10
+//			11						10			=>		 20
+//			21						10			=>		 30
+int endPage=startPage+pageBlock-1;
+//페이지 번호가 10까지 없을 경우
+//전체페이지 수 구하기
+//전체게시판 글 갯수 / pageSiez => pageCount
+//count12				/ pageSize 10 =>	1+1	=>	2
+//			20				/ pageSize	10 =>	2	=> 2	
+int pageCount = count/pageSize+(count%pageSize==0?0:1);
+if(endPage > pageCount){
+	endPage=pageCount;
+}
+for(int i=startPage; i<=endPage; i++){
+	%><a href="list.jsp?pageNum=<%=i  %>"><%=i %></a><%
+			}
+//이전
+if(startPage > pageBlock){
+	%><a href="list.jsp?pageNum=<%=startPage-pageBlock%>">Prev</a><%
+}
+//다음
+if(endPage < pageCount){
+	%><a href="list.jsp?pageNum<%=startPage+pageBlock%>">Next</a><%
+}
+	%>
+	
+<!-- <a href="#">Prev</a> -->
+<!-- <a href="list.jsp?pageNum=1">1</a><a href="list.jsp?pageNum=2">2</a><a href="#">3</a> -->
+<!-- <a href="#">4</a><a href="#">5</a><a href="#">6</a> -->
+<!-- <a href="#">7</a><a href="#">8</a><a href="#">9</a> -->
+<!-- <a href="#">10</a> -->
+<!-- <a href="#">Next</a> -->
 </div>
 </article>
 <!-- 게시판 -->

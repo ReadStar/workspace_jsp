@@ -1,3 +1,4 @@
+<%@page import="Member.MemberBean"%>
 <%@page import="Member.MemberDAO"%>
 <%@page import="Member.MemberBean"%>
 <%@page import="java.sql.Timestamp"%>
@@ -11,10 +12,10 @@
 </head>
 <body>
 <%
-//member/joinPro.jsp
-//한글처리
+// member/joinPro.jsp
+// 한글처리
 request.setCharacterEncoding("utf-8");
-//id, pass, name, email, address phone mobile 파라미터값 가져오기
+// id pass name email address phone mobile 파라미터 가져오기
 String id=request.getParameter("id");
 String pass=request.getParameter("pass");
 String name=request.getParameter("name");
@@ -22,13 +23,14 @@ String email=request.getParameter("email");
 String address=request.getParameter("address");
 String phone=request.getParameter("phone");
 String mobile=request.getParameter("mobile");
-//가입날짜 <= 현 시스템에 날짜시간 가져오기
-Timestamp date = new Timestamp(System.currentTimeMillis());
-//패키지 member 파일이름 MemberBean
-//id pass name emil address phone mobile 멤버변수 정의 set get
-//MemberBean mb 객체 생성
-//set메서드 호출 파라미터값 저장
-MemberBean mb = new MemberBean();
+// Timestamp date 현시스템 가입날짜 
+Timestamp date=new Timestamp(System.currentTimeMillis());
+
+// 패키지 member 파일이름 MemberBean 
+// id pass name email address phone mobile 멤버변수 정의 set get
+// MemberBean mb 객체 생성
+MemberBean mb=new MemberBean();
+// set메서드 호출 <- 파라미터 값 저장
 mb.setId(id);
 mb.setPass(pass);
 mb.setName(name);
@@ -37,10 +39,22 @@ mb.setAddress(address);
 mb.setPhone(phone);
 mb.setMobile(mobile);
 mb.setDate(date);
-//패키지 Member 파일이름 MemberDAO
-MemberDAO mdb = new MemberDAO();
-//리턴값 없음 insertMember(mb주소값)
-//MemberDAO 객체 생성
+
+// 패키지 member 파일이름 MemberDAO
+// 리턴값없음 insertMember(mb주소값 받을 변수) 메서드만들기
+// MemberDAO mdao 객체생성
+MemberDAO mdao=new MemberDAO();
+// insertMember(mb)
+mdao.insertMember(mb);
+
 %>
+<script type="text/javascript">
+	alert("회원가입성공");
+	location.href="login.jsp";
+</script>
 </body>
 </html>
+
+
+
+

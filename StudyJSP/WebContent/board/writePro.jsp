@@ -48,7 +48,7 @@ bb.setDate(date);
 //BoardDAO bdao 객체 생성
 boardDAO bdao = new boardDAO();
 //insertBoard(bb)메서드 호출
-bdao.insertboard(bb);
+bdao.insertBoard(bb);
 
 // // 1단계 - JDBC프로그램안에 Driver 프로그램 가져오기
 // Class.forName("com.mysql.jdbc.Driver");

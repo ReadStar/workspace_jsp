@@ -7,6 +7,35 @@ public class MemberBean {
 	private String name;
 	private String pass;
 	private Timestamp date;
+	private String email;
+	private String address;
+	private String phone;
+	private String mobile;
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
 	public Timestamp getDate() {
 		return date;
 	}

@@ -1,3 +1,6 @@
+<%@page import="member.MemberBean"%>
+<%@page import="java.util.List"%>
+<%@page import="member.MemberDAO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
@@ -13,34 +16,22 @@
 <body>
 <h1>WebContent/jsp4/list.jsp</h1>
 <%
-request.setCharacterEncoding("utf-8");
-String id = (String)session.getAttribute("id");
-if(id == null){
-	response.sendRedirect("loginForm.jsp");
-}else{
-	if(!id.equals("admin")){
-	response.sendRedirect("loginForm.jsp");
-	}
-}
-Class.forName("com.mysql.jdbc.Driver");
-String dbUrl="jdbc:mysql://localhost:3306/jspDB1?serverTimezone=UTC";
-String dbUser="jspid";
-String dbPass="jsppass";
-Connection con=DriverManager.getConnection(dbUrl, dbUser, dbPass);
-String sql="select *from member";
-PreparedStatement pstmt=con.prepareStatement(sql);
-ResultSet rs=pstmt.executeQuery();
-%>
+MemberDAO mdao = new MemberDAO();
 
+List memberList = mdao.getMemberList();
+%>
 <table border="1">
 <tr><td>아이디</td><td>비밀번호</td><td>이름</td><td>가입일자</td></tr>
 <%
-while(rs.next()){
+for(int i = 0 ; i < memberList.size() ; i++){
+	//배열 한칸에서 게시판 글 하나 가져오기
+	MemberBean mb = (MemberBean)memberList.get(i);
+
 %>
-<tr><td><%=rs.getString("id") %></td>
-<td><%=rs.getString("pass") %></td>
-<td><%=rs.getString("name") %></td>
-<td><%=rs.getTimestamp("date") %></td></tr>
+<tr><td><%=mb.getId() %></td>
+<td><%=mb.getPass() %></td>
+<td><%=mb.getName() %></td>
+<td><%=mb.getDate() %></td></tr>
 <%
 }
 	%>

@@ -39,9 +39,9 @@
 <nav id="sub_menu">
 <ul>
 <li><a href="#">Welcome</a></li>
-<li><a href="#">History</a></li>
-<li><a href="#">Newsroom</a></li>
-<li><a href="#">Public Policy</a></li>
+<li><a href="#">없음</a></li>
+<li><a href="#">없음</a></li>
+<li><a href="#">없음</a></li>
 </ul>
 </nav>
 <!-- 왼쪽메뉴 -->
@@ -51,53 +51,7 @@
 <figure class="ceo"><img src="../images/company/CEO.jpg" width="196" height="226" 
 alt="CEO"><figcaption>Fun Web CEO Michael</figcaption>
 </figure>
-<p>Lorem ipsum ipsum dolor...
-tellus Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus
-Lorem ipsum ipsum dolor...tellus</p>
+<p>내용쓸곳</p>
 </article>
 <!-- 내용 -->
 <!-- 본문 들어가는 곳 -->

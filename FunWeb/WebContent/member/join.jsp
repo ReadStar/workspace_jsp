@@ -21,6 +21,19 @@
 
  </script>
  <![endif]-->
+ <script type="text/javascript">
+ function dupCheck(){
+	 if(document.fr.id.value==""){
+		 alert("아이디 입력 하세요");
+		 document.fr.id.focus();
+		 return;
+	 }
+	 //창을 열어서 id 들고가기
+	 var wid=document.fr.id.value;
+	 window.open("dupCheck.jsp?wid="+wid,"","width=200, height=200");
+ }
+ </script>
+
 </head>
 <body>
 <div id="wrap">
@@ -48,7 +61,7 @@
 <legend>Basic Info</legend>
 <label>User ID</label>
 <input type="text" name="id" class="id">
-<input type="button" value="dup. check" class="dup"><br>
+<input type="button" value="중복확인" class="dup" onclick="dupCheck()"><br>
 <label>Password</label>
 <input type="password" name="pass"><br>
 <label>Retype Password</label>
