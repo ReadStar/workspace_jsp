@@ -6,9 +6,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Update</title>
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 <link href="../css/subpage.css" rel="stylesheet" type="text/css">
+ <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript">
+function DaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            var roadAddr = data.roadAddress; // 도로명 주소 변수
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('postcode').value = data.zonecode;
+            document.getElementById("roadAddress").value = roadAddr;
+            
+            detailAddress
+        }
+    }).open();
+}
+</script>
 <!--[if lt IE 9]>
 <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js" type="text/javascript"></script>
 <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/ie7-squish.js" type="text/javascript"></script>
@@ -37,8 +52,6 @@
 <!-- 왼쪽메뉴 -->
 <nav id="sub_menu">
 <ul>
-<li><a href="#">Join us</a></li>
-<li><a href="#">Privacy policy</a></li>
 </ul>
 </nav>
 <!-- 왼쪽메뉴 -->
@@ -52,13 +65,13 @@ MemberDAO mdao=new MemberDAO();
 // MemberBean mb = getMember(id) 메서드 만들고 호출
 MemberBean mb=mdao.getMember(id);
 %>
-<h1>Update Us</h1>
+<h1>개인 정보 수정</h1>
 <form action="updatePro.jsp" id="join" method="post" name="fr">
 <fieldset>
-<legend>Basic Info</legend>
+<legend>필수 사항</legend>
 <label>User ID</label>
 <input type="text" name="id" class="id" value="<%=id%>" readonly>
-<input type="button" value="dup. check" class="dup"><br>
+<br>
 <label>Password</label>
 <input type="password" name="pass"><br>
 <label>Retype Password</label>
@@ -67,18 +80,23 @@ MemberBean mb=mdao.getMember(id);
 <input type="text" name="name" value="<%=mb.getName()%>"><br>
 <label>E-Mail</label>
 <input type="email" name="email" value="<%=mb.getEmail()%>"><br>
-<label>Retype E-Mail</label>
-<input type="email" name="email2"><br>
 </fieldset>
 
 <fieldset>
-<legend>Optional</legend>
-<label>Address</label>
-<input type="text" name="address" value="<%=mb.getAddress()%>"><br>
-<label>Phone Number</label>
-<input type="text" name="phone" value="<%=mb.getPhone()%>"><br>
-<label>Mobile Phone Number</label>
-<input type="text" name="mobile" value="<%=mb.getMobile()%>"><br>
+<legend>선택사항</legend>
+<label> 우편번호 </label>
+<input type="text" name = "postcode" value="<%=mb.getPostcode()%>" id="postcode" placeholder="우편번호">
+<input type="button" class="dup" value="우편번호 찾기" onclick="DaumPostcode()"><br>
+<label>주소</label>
+<input type="text" name="roadAddress" value="<%=mb.getRoadaddress() %>" id="roadAddress"  placeholder="도로명주소">
+<br>
+<label>상세 주소 입력</label>
+<input type="text" name="detailAddress" value="<%=mb.getDetailaddress() %>" id="detailAddress" placeholder="상세주소">
+<br>
+<label>집 전화</label>
+<input type="text" value="<%=mb.getPhone()%>" name="phone"><br>
+<label>핸드폰 번호</label>
+<input type="text" value="<%=mb.getMobile()%>" name="mobile"><br>
 </fieldset>
 <div class="clear"></div>
 <div id="buttons">

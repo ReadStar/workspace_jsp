@@ -62,13 +62,13 @@ background-repeat: no-repeat;padding: 5px 0 0 22px;}
 스타일 italic 굵기 normal 너비 420px 높이 24px
 배경이미지h3_back.jpg 반복no-repeat 안여백 5px 0 0 22px*/
 #sec_news .orange{color: #f26522}/*글자색 #f26522*/
-#news_notice .brown{color: #827b00}/*글자색 #827b00*/
+#news_notice .brown{color: #1DDB16}/*글자색 #827b00*/
 #sec_news dl{margin-left: 6px}/*밖왼쪽여백 6px*/
 #sec_news dt{font-family: "Times New roman";
-font-size: 16px; margin: 5px 0; color: #F00}
+font-size: 16px; margin: 5px 0; color: #3163C9}
 /*글자체 Times New roman 글자크기 16px
  밖여백 5px 0 글자색 #F00*/
-#sec_news dd{margin-left: 0;color: #333;}
+#sec_news dd{margin-left: 0;color: #000000;}
 /*밖왼쪽 여백 0 글자색 #333*/
 #news_notice table{width: 400px;
 border-collapse: collapse; text-align: center;}
@@ -89,7 +89,7 @@ border-bottom-color: #999}
 글자정렬 왼쪽 글자색 #333*/
 #news_notice a{color: #333;text-decoration: none;}
 /*글자색 #333 밑줄 없음*/
-#news_notice a:hover{color: #FFFFFF;
+#news_notice a:hover{
 text-decoration: none;}/*글자색 #F90 밑줄 none*/
 
 

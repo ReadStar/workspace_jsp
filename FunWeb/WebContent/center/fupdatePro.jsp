@@ -1,3 +1,5 @@
+<%@page import="FileBoard.fBoardDAO"%>
+<%@page import="FileBoard.fBoardBean"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="Board.BoardBean"%>
@@ -40,10 +42,9 @@
 <!-- 왼쪽메뉴 -->
 <nav id="sub_menu">
 <ul>
-<li><a href="fnotice.jsp">Notice</a></li>
-<li><a href="#">Public News</a></li>
-<li><a href="#">Driver Download</a></li>
-<li><a href="#">Service Policy</a></li>
+<li><a href="notice.jsp">Notice</a></li>
+<li><a href="fnotice.jsp">ReView</a></li>
+<li><a href="pnotice.jsp">Pic</a></li>
 </ul>
 </nav>
 <!-- 왼쪽메뉴 -->
@@ -59,7 +60,6 @@
 //파라미터 가져오기
 int num = Integer.parseInt(multi.getParameter("num"));
 String name = multi.getParameter("name");
-String pass = multi.getParameter("pass");
 String subject = multi.getParameter("subject");
 String content = multi.getParameter("content");
 //새롭게 추가할 file 
@@ -69,39 +69,20 @@ if(file==null){
 	file=multi.getParameter("oldfile");
 }
 //BoardBean bb 객체생성
-BoardBean bb = new BoardBean();
+fBoardBean fbb = new fBoardBean();
 
 //bb 멤버변수 파라미터 저장
-bb.setNum(num);
-bb.setName(name);
-bb.setPass(pass);
-bb.setSubject(subject);
-bb.setContent(content);
-bb.setFile(file);
+fbb.setNum(num);
+fbb.setName(name);
+fbb.setSubject(subject);
+fbb.setContent(content);
+fbb.setFile(file);
 //DAO 객체 생성
-BoardDAO bdao = new BoardDAO();
+fBoardDAO fbdao = new fBoardDAO();
 //int check = numcheck(bb) 만들고 호출
-int check=bdao.numCheck(bb);
-//check ==1 리턴값 없음
-if(check==1){
-	bdao.updateBoard(bb);
+int check=fbdao.numCheck(fbb);
+	fbdao.updateBoard(fbb);
 	response.sendRedirect("fnotice.jsp");
-}else if(check == 0){
-	%>
-	<script type="text/javascript">
-	alert("비밀번호틀림");
-	history.back(); //뒤로이동
-	</script>
-	<%	
-}else{
-	%>
-	<script type="text/javascript">
-	alert("num 없음");
-	history.back();
-	</script>
-	<%
-}
-%>
 %>
 
 <!-- 게시판 -->
@@ -114,7 +95,6 @@ if(check==1){
 </div>
 <div class="clear"></div>
 <div id="page_control">
-<a href="#">Prev</a>
 </div>
 </article>
 <!-- 게시판 -->

@@ -10,20 +10,20 @@ if(id==null){
 }else{
 	%>
 	<div id="login"><%=id %>님 | <a href="../member/logout.jsp">logout</a> | 
-	<a href="../member/updateForm.jsp">update</a></div>
+	<a href="../member/updateForm.jsp">MyPage</a></div>
 	<%
 }
 %>
 
 <div class="clear"></div>
 <!-- 로고들어가는 곳 -->
-<div id="logo"><img src="../images/LogoMakr_57ym8Y.png" width="265" height="62" alt="Fun Web"></div>
+<div id="logo"><a href="../main/main.jsp"><img src="../images/LogoMakr_57ym8Y.png" width="265" height="62" alt="Fun Web"></a></div>
 <!-- 로고들어가는 곳 -->
 <nav id="top_menu">
 <ul>
-	<li><a href="../main/main.jsp">HOME</a></li>
-	<li><a href="../company/welcome.jsp">COMPANY</a></li>
-	<li><a href="../center/notice.jsp">Notice</a></li>
+	<li><a href="../main/main.jsp">Home</a></li>
+	<li><a href="../company/welcome.jsp">Intro</a></li>
+	<li><a href="../center/notice.jsp">Board</a></li>
 </ul>
 </nav>
 </header>

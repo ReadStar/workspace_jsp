@@ -38,10 +38,9 @@
 <!-- 왼쪽메뉴 -->
 <nav id="sub_menu">
 <ul>
-<li><a href="#">Notice</a></li>
-<li><a href="#">Public News</a></li>
-<li><a href="#">Driver Download</a></li>
-<li><a href="#">Service Policy</a></li>
+<li><a href="notice.jsp">FreeBoard</a></li>
+<li><a href="fnotice.jsp">File</a></li>
+<li><a href="pnotice.jsp">Pic</a></li>
 </ul>
 </nav>
 <!-- 왼쪽메뉴 -->
@@ -64,9 +63,9 @@ int num=Integer.parseInt(request.getParameter("num"));
 <input type="submit" value="search" class="btn">
 </div>
 <div class="clear"></div>
-<div id="page_control">
-<a href="#">Prev</a>
-</div>
+<!-- <div id="page_control"> -->
+<!-- <a href="#">Prev</a> -->
+<!-- </div> -->
 </form>
 </article>
 <!-- 게시판 -->

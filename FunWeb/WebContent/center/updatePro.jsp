@@ -25,25 +25,14 @@
  <![endif]-->
 </head>
 <body>
-<div id="wrap">
 <!-- 헤더들어가는 곳 -->
-<jsp:include page="../inc/top.jsp"/>
 <!-- 헤더들어가는 곳 -->
  
 <!-- 본문들어가는 곳 -->
 <!-- 메인이미지 -->
-<div id="sub_img_center"></div>
 <!-- 메인이미지 -->
  
 <!-- 왼쪽메뉴 -->
-<nav id="sub_menu">
-<ul>
-<li><a href="#">Notice</a></li>
-<li><a href="#">Public News</a></li>
-<li><a href="#">Driver Download</a></li>
-<li><a href="#">Service Policy</a></li>
-</ul>
-</nav>
 <!-- 왼쪽메뉴 -->
  <%
  request.setCharacterEncoding("utf-8");
@@ -51,7 +40,6 @@
 //파라미터 가져오기
 int num = Integer.parseInt(request.getParameter("num"));
 String name = request.getParameter("name");
-String pass = request.getParameter("pass");
 String subject = request.getParameter("subject");
 String content = request.getParameter("content");
 //BoardBean bb 객체생성
@@ -60,54 +48,16 @@ BoardBean bb = new BoardBean();
 //bb 멤버변수 파라미터 저장
 bb.setNum(num);
 bb.setName(name);
-bb.setPass(pass);
 bb.setSubject(subject);
 bb.setContent(content);
 //DAO 객체 생성
 BoardDAO bdao = new BoardDAO();
 //int check = numcheck(bb) 만들고 호출
-int check=bdao.numCheck(bb);
 //check ==1 리턴값 없음
-if(check==1){
 	bdao.updateBoard(bb);
 	response.sendRedirect("notice.jsp");
-}else if(check == 0){
 	%>
-	<script type="text/javascript">
-	alert("비밀번호틀림");
-	history.back(); //뒤로이동
-	</script>
-	<%	
-}else{
-	%>
-	<script type="text/javascript">
-	alert("num 없음");
-	history.back();
-	</script>
-	<%
-}
-%>
-%>
 
 <!-- 게시판 -->
-<article>
-<h1>Notice Write</h1>
-
-
-<div id="table_search">
-<input type="submit" value="search" class="btn">
-</div>
-<div class="clear"></div>
-<div id="page_control">
-<a href="#">Prev</a>
-</div>
-</article>
-<!-- 게시판 -->
-<!-- 본문들어가는 곳 -->
-<div class="clear"></div>
-<!-- 푸터들어가는 곳 -->
-<jsp:include page="../inc/bottom.jsp"/>
-<!-- 푸터들어가는 곳 -->
-</div>
 </body>
 </html>

@@ -33,6 +33,8 @@ BoardBean bb=bdao.getBoard(num);
 <tr><td colspan="4">
 <input type="button" value="글수정" onclick="location.href='updateForm.jsp?num=<%=bb.getNum()%>'">
 <input type="button" value="글삭제" onclick="location.href='deleteForm.jsp?num=<%=bb.getNum()%>'">
+<input type="button" value="답글쓰기" onclick ="location.href='reWriteForm.jsp?num=<%=bb.getNum() %>&
+re_ref=<%=bb.getRe_ref()%>&re_lev=<%=bb.getRe_lev()%>&re_seq=<%=bb.getRe_seq()%>'">
 <input type="button" value="글목록" onclick="location.href='list.jsp'"></td></tr>
 </table>	
 </body>

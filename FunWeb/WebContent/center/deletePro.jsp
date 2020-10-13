@@ -37,10 +37,9 @@
 <!-- 왼쪽메뉴 -->
 <nav id="sub_menu">
 <ul>
-<li><a href="#">Notice</a></li>
-<li><a href="#">Public News</a></li>
-<li><a href="#">Driver Download</a></li>
-<li><a href="#">Service Policy</a></li>
+<li><a href="notice.jsp">Notice</a></li>
+<li><a href="fnotice.jsp">Review</a></li>
+<li><a href="pnotice.jsp">Pic</a></li>
 </ul>
 </nav>
 <!-- 왼쪽메뉴 -->
@@ -55,26 +54,9 @@ bb.setPass(pass);
 
 BoardDAO bdao = new BoardDAO();
 //int check = numcheck(bb) 만들고 호출
-int check=bdao.numCheck(bb);
-//check ==1 리턴값 없음
-if(check==1){
 	bdao.deleteBoard(bb);
 	response.sendRedirect("notice.jsp");
-}else if(check == 0){
-	%>
-	<script type="text/javascript">
-	alert("비밀번호틀림");
-	history.back(); //뒤로이동
-	</script>
-	<%	
-}else{
-	%>
-	<script type="text/javascript">
-	alert("num 없음");
-	history.back();
-	</script>
-	<%
-}
+//check ==1 리턴값 없음
 %>
 </body>
 <!-- 게시판 -->
@@ -83,10 +65,10 @@ if(check==1){
 <div id="table_search">
 <input type="submit" value="search" class="btn">
 </div>
-<div class="clear"></div>
-<div id="page_control">
-<a href="#">Prev</a>
-</div>
+<!-- <div class="clear"></div> -->
+<!-- <div id="page_control"> -->
+<!-- <a href="#">Prev</a> -->
+<!-- </div> -->
 </article>
 <!-- 게시판 -->
 <!-- 본문들어가는 곳 -->

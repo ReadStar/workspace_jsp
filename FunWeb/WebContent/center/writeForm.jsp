@@ -1,3 +1,5 @@
+<%@page import="Member.MemberBean"%>
+<%@page import="Member.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,24 +34,29 @@
 <!-- 메인이미지 -->
 <div id="sub_img_center"></div>
 <!-- 메인이미지 -->
- 
+
 <!-- 왼쪽메뉴 -->
 <nav id="sub_menu">
 <ul>
-<li><a href="#">Notice</a></li>
-<li><a href="#">Public News</a></li>
-<li><a href="#">Driver Download</a></li>
-<li><a href="#">Service Policy</a></li>
+<li><a href="notice.jsp">FreeBoard</a></li>
+<li><a href="fnotice.jsp">File</a></li>
+<li><a href="pnotice.jsp">Pic</a></li>
 </ul>
 </nav>
 <!-- 왼쪽메뉴 -->
-<!-- 게시판 -->
+<!-- 게시판 --> 
+<%
+String id=(String)session.getAttribute("id");
+//MemberDAO mdao 객체생성
+MemberDAO mdao=new MemberDAO();
+//MemberBean mb = getMember(id) 메서드 만들고 호출
+MemberBean mb=mdao.getMember(id);
+%>
 <article>
-<h1>Notice Write</h1>
+<h1>FreeBoard Write</h1>
 <form action="writePro.jsp" method="post">
 <table id="notice">
-<tr><td>글쓴이</td><td><input type="text" name="name" ></td></tr>
-<tr><td>비밀번호</td><td><input type="password" name="pass"></td></tr>
+<tr><td>글쓴이</td><td><input type="text" name="name" value="<%=id %>" readonly></td></tr>
 <tr><td>제목</td><td><input type="text" name="subject"></td></tr>
 <tr><td>내용</td>
 	<td><textarea name="content" rows="10" cols="20"></textarea></td></tr>

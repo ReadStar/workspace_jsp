@@ -36,15 +36,14 @@
 <!-- 왼쪽메뉴 -->
 <nav id="sub_menu">
 <ul>
-<li><a href="#">Notice</a></li>
-<li><a href="#">Public News</a></li>
-<li><a href="#">Driver Download</a></li>
-<li><a href="#">Service Policy</a></li>
+<li><a href="notice.jsp">FreeBoard</a></li>
+<li><a href="fnotice.jsp">File</a></li>
+<li><a href="pnotice.jsp">Pic</a></li>
 </ul>
 </nav>
 <!-- 왼쪽메뉴 -->
-  request.setCharacterEncoding("utf-8");
   <%
+  request.setCharacterEncoding("utf-8");
 //세션값 가져오기
 //세션값 없으면 ../member/login.jsp 이동
 String id=(String)session.getAttribute("id");
@@ -54,11 +53,10 @@ String id=(String)session.getAttribute("id");
 %>
 <!-- 게시판 -->
 <article>
-<h1>Notice Write</h1>
+<h1>File Write</h1>
 <form action="fwritePro.jsp" method="post" enctype="multipart/form-data">
 <table id="notice">
 <tr><td>글쓴이</td><td><input type="text" name="name"  value="<%=id %>" readonly></td></tr>
-<tr><td>비밀번호</td><td><input type="password" name="pass"></td></tr>
 <tr><td>제목</td><td><input type="text" name="subject"></td></tr>
 <tr><td>파일</td><td><input type="file" name="file"></td></tr>
 <tr><td>내용</td>

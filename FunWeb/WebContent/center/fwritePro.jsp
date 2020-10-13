@@ -1,3 +1,5 @@
+<%@page import="FileBoard.fBoardDAO"%>
+<%@page import="FileBoard.fBoardBean"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="Board.BoardDAO"%>
@@ -42,25 +44,25 @@ Timestamp date=new Timestamp(System.currentTimeMillis());
 String file=multi.getFilesystemName("file");
 
 //패키지 board 파일이름 BoardBean
-BoardBean bb = new BoardBean();
+fBoardBean fbb = new fBoardBean();
 //멤버변수 준비 set(), get()
 //BoardBean bb객체 생성
 //bb 멤버변수 set메서드 호출 파라미터 값 저장
-bb.setName(name);
-bb.setPass(pass);
-bb.setSubject(subject)	;
-bb.setContent(content);
-bb.setReadcount(readcount);
-bb.setDate(date);
+fbb.setName(name);
+fbb.setPass(pass);
+fbb.setSubject(subject)	;
+fbb.setContent(content);
+fbb.setReadcount(readcount);
+fbb.setDate(date);
 //file 추가
-bb.setFile(file);
+fbb.setFile(file);
 
 //패키지 Board BoardDAO 생성
 //리턴값 없음 insertBoard(bb)
 //BoardDAO bdao 객체 생성
-BoardDAO bdao = new BoardDAO();
+fBoardDAO fbdao = new fBoardDAO();
 //bdao insertBoard(bb)	메서드 호출
-bdao.insertboard(bb);
+fbdao.insertfileboard(fbb);
 //notice.jsp 이동
 response.sendRedirect("fnotice.jsp");
 %>

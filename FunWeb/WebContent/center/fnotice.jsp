@@ -1,3 +1,5 @@
+<%@page import="FileBoard.fBoardBean"%>
+<%@page import="FileBoard.fBoardDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="Board.BoardBean"%>
 <%@page import="java.util.List"%>
@@ -12,7 +14,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>File</title>
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 <link href="../css/subpage.css" rel="stylesheet" type="text/css">
 <!--[if lt IE 9]>
@@ -29,6 +31,13 @@
  
  </script>
  <![endif]-->
+ <style type="text/css"> 
+  a:link { colol: black; text-decoration: none;} 
+  a:visited { text-decoration: none;} 
+  a:active { text-decoration: none;}
+  a:hover {text-decoration:underline;}
+</style>
+<body vlink="black" link="black" alink="black">
 </head>
 <body>
 <div id="wrap">
@@ -44,17 +53,17 @@
 <!-- 왼쪽메뉴 -->
 <nav id="sub_menu">
 <ul>
-<li><a href="notice.jsp">Notice</a></li>
-<li><a href="fnotice.jsp">ReView</a></li>
-<li><a href="#">Pic</a></li>
+<li><a href="notice.jsp">FreeBoard</a></li>
+<li><a href="fnotice.jsp">File</a></li>
+<li><a href="pnotice.jsp">Pic</a></li>
 </ul>
 </nav>
 <!-- 왼쪽메뉴 -->
 
 <%
-BoardDAO bdao = new BoardDAO();
+fBoardDAO fbdao = new fBoardDAO();
 
-int count=bdao.getBoardCount();
+int count=fbdao.getBoardCount();
 //한페이지에 보여줄 글 개수설정
 int pageSize=10;
 //현 페이지 번호 가져오기
@@ -76,57 +85,48 @@ int startRow = (currentPage-1)*pageSize+1;
 //String sql="select *from board order by num desc limit ?, ?"; //limit 구문은 mysql만
 //?startRow -1 ? pageSize 
 //날짜를 원하는 모양으로 변경하는 문자열 결과값
-List boardList=bdao.getBoardList(startRow, pageSize);
+List boardList=fbdao.getfileBoardList(startRow, pageSize);
 SimpleDateFormat sdf=new SimpleDateFormat("yy.MM.dd");
 %> 
-
 <!-- 게시판 -->
 <article>
-<h1>File Notice</h1>
+<h1>File</h1>
 <table id="notice">
-<tr><th class="tno">No.</th>
-    <th class="ttitle">Title</th>
-    <th class="twrite">Writer</th>
-    <th class="tdate">Date</th>
-    <th class="tread">Read</th></tr>
-<%
+<!-- <tr><th class="tno">No.</th> -->
+<!--     <th class="ttitle">Title</th> -->
+<!--     <th class="twrite">Writer</th> -->
+<!--     <th class="tdate">Date</th> -->
+<!--     <th class="tread">Read</th></tr> -->
+<tr><th class="tno">번호</th><th class="ttitle">제목</th><th class="twrite">작성자</th>
+<th class="tdate">게시일</th><th class="tread">조회수</th></tr>
 
-
-%>
-<tr><td>번호</td><td>제목</td><td>작성자</td><td>날짜</td><td>조회수</td>
+<!-- <tr><td>번호</td><td>제목</td><td>작성자</td><td>날짜</td><td>조회수</td> -->
 <%
 for(int i = 0 ; i < boardList.size() ; i++){
 	//배열 한칸에서 게시판 글 하나 가져오기
-	BoardBean bb = (BoardBean)boardList.get(i);
+	fBoardBean fbb = (fBoardBean)boardList.get(i);
 
 %>
-<tr onclick="location.href='fcontent.jsp?num=<%=bb.getNum() %>'">
-	<td><%=bb.getNum() %></td>
-	<td class="left"><%=bb.getSubject() %>
-	<img src="../upload/<%=bb.getFile() %>" width="50" height="50"></td>
-	<td><%=bb.getName() %></td>
-	<td><%=sdf.format(bb.getDate()) %></td>
-	<td><%=bb.getReadcount()%></td></tr>
-	<%
-	}
-	%>
-<%-- 			<tr><td><%=bb.getNum() %></td> --%>
-<%-- 			 <td><a href="content.jsp?num=<%=bb.getNum() %>"><%=bb.getSubject() %></a></td> --%>
-<%-- 			 <td><%=bb.getName() %></td><td><%=sdf.format(bb.getDate()) %></td> --%>
-<%-- 			 <td><%=bb.getReadcount() %></td> --%>
+			<tr><td><%=fbb.getNum() %></td>
+			 <td><a href="fcontent.jsp?num=<%=fbb.getNum() %>"><%=fbb.getSubject() %></a></td>
+			 <td><%=fbb.getName() %></td><td><%=sdf.format(fbb.getDate()) %></td>
+			 <td><%=fbb.getReadcount() %></td>
+<%
+}
+%>
 </table>
 <div id="table_search">
+<form action="fnoticeSearch.jsp" method="post">
 <input type="text" name="search" class="input_box">
-<input type="button" value="search" class="btn">
+<input type="submit" value="search" class="btn">
 <%
 String id=(String)session.getAttribute("id");
 if(id!=null){
-	%><input type="button" value="Write" class="btn" onclick="location.href='fwriteForm.jsp'"><%
+	%><input type="button" value="Write" class="btn" onclick="location.href='fwriteForm.jsp'"
+	style="margin:0 0 0 260px;"><%
 }
 %>
-</div>
-<div id="table_search">
-
+</form>
 </div>
 <div class="clear"></div>
 <div id="page_control">
@@ -155,15 +155,15 @@ if(endPage > pageCount){
 	endPage=pageCount;
 }
 for(int i=startPage; i<=endPage; i++){
-	%><a href="list.jsp?pageNum=<%=i  %>"><%=i %></a><%
+	%><a href="flist.jsp?pageNum=<%=i  %>"><%=i %></a><%
 			}
 //이전
 if(startPage > pageBlock){
-	%><a href="list.jsp?pageNum=<%=startPage-pageBlock%>">Prev</a><%
+	%><a href="flist.jsp?pageNum=<%=startPage-pageBlock%>">Prev</a><%
 }
 //다음
 if(endPage < pageCount){
-	%><a href="list.jsp?pageNum<%=startPage+pageBlock%>">Next</a><%
+	%><a href="flist.jsp?pageNum<%=startPage+pageBlock%>">Next</a><%
 }
 	%>
 	

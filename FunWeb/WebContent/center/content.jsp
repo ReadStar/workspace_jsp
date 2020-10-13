@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="Comment.CommentDAO"%>
+<%@page import="Comment.CommentBean"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="Board.BoardBean"%>
 <%@page import="Board.BoardDAO"%>
@@ -14,6 +17,14 @@
 <title>Insert title here</title>
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 <link href="../css/subpage.css" rel="stylesheet" type="text/css">
+<style>
+
+.pre {white-space: pre;}
+
+.boxst {border: 1px solid white;
+width: 600px;
+ line-height: 1.8;}
+</style>
 <!--[if lt IE 9]>
 <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js" type="text/javascript"></script>
 <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/ie7-squish.js" type="text/javascript"></script>
@@ -43,26 +54,22 @@
 <!-- 왼쪽메뉴 -->
 <nav id="sub_menu">
 <ul>
-<li><a href="notice.jsp">Notice</a></li>
-<li><a href="fnotice.jsp">ReView</a></li>
-<li><a href="#">Pic</a></li>
+<li><a href="notice.jsp">FreeBoard</a></li>
+<li><a href="fnotice.jsp">File</a></li>
+<li><a href="pnotice.jsp">Pic</a></li>
 </ul>
 </nav>
 <!-- 왼쪽메뉴 -->
  
 <!-- 게시판 -->
 <article>
-<h1>Notice</h1>
+<h1>FreeBoard</h1>
 <table id="notice">
-<tr><th class="tno">No.</th>
-    <th class="ttitle">Title</th>
-    <th class="twrite">Writer</th>
-    <th class="tdate">Date</th>
-    <th class="tread">Read</th></tr>
 <%
 //int num 파라미터 값 가져오기
 int num=Integer.parseInt(request.getParameter("num"));
 SimpleDateFormat sdf=new SimpleDateFormat("yy.MM.dd");
+SimpleDateFormat sdf2=new SimpleDateFormat("yy.MM.dd. hh:mm:ss");
 //BoardDAO bdao 객체생성
 BoardDAO bdao = new BoardDAO();
 //조회수 증가 메서드 만들고 호출
@@ -75,9 +82,6 @@ BoardBean bb=bdao.getBoard(num);
 <tr><td>작성자</td><td><%=bb.getName() %></td>
     <td>조회수</td><td><%=bb.getReadcount()%></td></tr>
 <tr><td>제목</td><td colspan="3"><%=bb.getSubject() %></td></tr>
-<tr><td>파일</td><td colspan="3">
-<a href="../upload/<%=bb.getFile() %>"<%=bb.getFile() %>></a>
-<img src="../upload/<%=bb.getFile() %>" width="50" height="50">
 </td></tr>
 <tr><td>내용</td><td colspan="3"><%=bb.getContent() %></td></tr>
 <tr><td colspan="4">
@@ -89,26 +93,53 @@ if(id!=null){
 	if(id.equals(bb.getName())){
 		%>
 <input type="button" value="글수정" class = "btn" onclick="location.href='updateForm.jsp?num=<%=bb.getNum()%>'">
-<input type="button" value="글삭제" class = "btn" onclick="location.href='deleteForm.jsp?num=<%=bb.getNum()%>'">
+<input type="button" value="글삭제" class = "btn" onclick="location.href='deletePro.jsp?num=<%=bb.getNum()%>'">
 	<%
 	}
 }
 %>
 <input type="button" value="글목록" class = "btn" onclick="location.href='notice.jsp'"></td></tr>
 </table>
-<div id="table_search">
-<input type="text" name="search" class="input_box">
-<input type="button" value="search" class="btn">
-</div>
+<h4 style="text-align: center;">Comment</h4>
+<hr>
+<ul style ="list-style-type: none;">
+<%
+CommentDAO cdao = new CommentDAO();
+List commentList = cdao.getCommentList(bb.getNum());
+for(int i = 0 ; i <commentList.size() ; i++){
+	//배열 한칸에서 게시판 글 하나 가져오기
+	CommentBean cb = (CommentBean)commentList.get(i);
+%>
+			 <li><div>작성자 : <%=cb.getName()%> 작성일 : <%=sdf2.format(cb.getDate())%> 
+			 <%if(id!=null){
+				 if(id.equals(cb.getName())){
+					 %>
+			 <input type="button" value="x" 
+			 style = "width:20px; height:20px; text-align: center; margin: 0 0 0 300px;"
+			 onclick="location.href='commentdeletePro.jsp?num=<%=cb.getNum()%>&boardnum=<%=bb.getNum()%>'"></div></li>
+					 <%
+				 }
+			 }%>
+			 			 <li><div>내용 : <%=cb.getContent()%></div></li>
+			 			 <li><hr></li>
+<% 
+}
+%></ul>
+<form action="commentWritePro.jsp" method="post">
+<input type="hidden" name ="boardnum" value="<%=bb.getNum() %>">
+<table>
+<%
+if(id!=null){
+	%>
+<tr><th>댓글</th>
+	<th><textarea name="content" rows="3" cols="60"></textarea></th>
+<th><input type="submit" value="댓글작성" style="margin: 0 0 0 10px;"><br><%
+}
+%></th>
+</table>
+</form>
+
 <div class="clear"></div>
-<div id="page_control">
-<a href="#">Prev</a>
-<a href="#">1</a><a href="#">2</a><a href="#">3</a>
-<a href="#">4</a><a href="#">5</a><a href="#">6</a>
-<a href="#">7</a><a href="#">8</a><a href="#">9</a>
-<a href="#">10</a>
-<a href="#">Next</a>
-</div>
 </article>
 <!-- 게시판 -->
 <!-- 본문들어가는 곳 -->

@@ -35,8 +35,6 @@
 <!-- 왼쪽메뉴 -->
 <nav id="sub_menu">
 <ul>
-<li><a href="#">Join us</a></li>
-<li><a href="#">Privacy policy</a></li>
 </ul>
 </nav>
 <!-- 왼쪽메뉴 -->

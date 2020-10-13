@@ -31,7 +31,19 @@ for(int i = 0 ; i < boardList.size() ; i++){
 
 %>
 			<tr><td><%=bb.getNum() %></td>
-			 <td><a href="content.jsp?num=<%=bb.getNum() %>"><%=bb.getSubject() %></a></td>
+			 <td>
+			 <%
+			 //답글이면 이미지 보이기
+			 // 들여쓰기 1 => 흰색이미지 너비 10px, 들여쓰기 2=> 흰색이미지 너비 20px
+			 if(bb.getRe_lev()>0){
+				 int wid=bb.getRe_lev()*10;
+				 %>
+				 <img src="level.gif" width="<%=wid%>" heigth="15">
+				 <img src="re.gif"><%
+			 }
+			 %>
+			
+			 <a href="content.jsp?num=<%=bb.getNum() %>"><%=bb.getSubject() %></a></td>
 			 <td><%=bb.getName() %></td><td><%=bb.getDate() %></td>
 			 <td><%=bb.getReadcount() %></td>
 <%

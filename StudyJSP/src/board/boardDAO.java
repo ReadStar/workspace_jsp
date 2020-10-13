@@ -43,7 +43,7 @@ public class boardDAO {
 			}
  
 			// 3단계 - 접속정보를 이용해서 insert sql 구문 만들고 실행할수 있는 자바프로그램 생성
-			String sql="insert into board(num,name,pass,subject,content,readcount,date) values(?,?,?,?,?,?,?)";
+			String sql="insert into board(num,name,pass,subject,content,readcount,date,re_ref,re_lev,re_seq) values(?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, num);  //parameterIndex ? 물음표 순서 ,값저장된 변수
 			pstmt.setString(2, bb.getName());
@@ -52,6 +52,10 @@ public class boardDAO {
 			pstmt.setString(5, bb.getContent());
 			pstmt.setInt(6, bb.getReadcount());
 			pstmt.setTimestamp(7, bb.getDate());
+			//기준글(일반글) 답글관련추가
+			pstmt.setInt(9, num); //re_ref =num 기준번호일치
+			pstmt.setInt(10, 0); //re_lev =0
+			pstmt.setInt(11, 0); //re_seq =0
 			// 4단계 - sql실행  (insert, update, delete)
 			pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -92,6 +96,10 @@ public class boardDAO {
 				bb.setContent(rs.getString("content"));
 				bb.setReadcount(rs.getInt("readcount"));
 				bb.setDate(rs.getTimestamp("date"));
+				//답글관련
+				bb.setRe_ref(rs.getInt("re_ref"));
+				bb.setRe_lev(rs.getInt("re_lev"));
+				bb.setRe_seq(rs.getInt("re_seq"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -165,7 +173,9 @@ public class boardDAO {
 		List boardList = new ArrayList();
 		try{
 			Connection con =getConnection();
-			String sql="select *from board order by num desc limit ?, ?";
+//			String sql="select *from board order by num desc limit ?, ?";
+			//String sql="select *from board order by num desc limit ?,?";
+			String sql="select *from board order by re_ref desc, re_seq asc limit ?, ?";
 			 PreparedStatement pstmt=con.prepareStatement(sql);
 			 ResultSet rs = pstmt.executeQuery();
 			 while(rs.next()){
@@ -177,6 +187,10 @@ public class boardDAO {
 				 bb.setContent(rs.getString("content"));
 				 bb.setReadcount(rs.getInt("readcount"));
 				 bb.setDate(rs.getTimestamp("date"));
+					//답글관련
+					bb.setRe_ref(rs.getInt("re_ref"));
+					bb.setRe_lev(rs.getInt("re_lev"));
+					bb.setRe_seq(rs.getInt("re_seq"));
 				 //배열에 첫번째 칸에 저장
 				 boardList.add(bb);
 			 }
@@ -187,5 +201,42 @@ public class boardDAO {
 			}
 		return boardList;
 		}
+	public void reInsertBoard(BoardBean bb) {
+		try {
+			// 1,2 단계 디비연결 메서드 호출
+			 Connection con=getConnection();
+			//3단계 num구하기 기존글에서 최대 num 값을 구해서 +1 
+			String sql2="select max(num) from board";
+			PreparedStatement pstmt2=con.prepareStatement(sql2);
+			//4단계 실행 => rs 저장
+			ResultSet rs=pstmt2.executeQuery();
+			//5단계 rs 첫행이동 max(num) 가져오기 +1
+			int num=0;
+			if(rs.next()){
+				num=rs.getInt("max(num)")+1;
+			}
+ 
+			// 3단계 - 접속정보를 이용해서 insert sql 구문 만들고 실행할수 있는 자바프로그램 생성
+			String sql="insert into board(num,name,pass,subject,content,readcount,date,re_ref,re_lev,re_seq) values(?,?,?,?,?,?,?,?,?,?)";
+			PreparedStatement pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, num);  //parameterIndex ? 물음표 순서 ,값저장된 변수
+			pstmt.setString(2, bb.getName());
+			pstmt.setString(3, bb.getPass());
+			pstmt.setString(4, bb.getSubject());
+			pstmt.setString(5, bb.getContent());
+			pstmt.setInt(6, bb.getReadcount());
+			pstmt.setTimestamp(7, bb.getDate());
+			//기준글(일반글) 답글관련추가
+			pstmt.setInt(9, bb.getRe_ref()); //re_ref =num 기준번호일치
+			pstmt.setInt(10, bb.getRe_lev()+1); //re_lev =0
+			pstmt.setInt(11, bb.getRe_seq()+1); //re_seq =0
+			// 4단계 - sql실행  (insert, update, delete)
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			//마무리
+		}
+	}
 }//클래스
  

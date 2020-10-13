@@ -38,10 +38,9 @@
 <!-- 왼쪽메뉴 -->
 <nav id="sub_menu">
 <ul>
-<li><a href="notice.jsp">Notice</a></li>
-<li><a href="#">Public News</a></li>
-<li><a href="#">Driver Download</a></li>
-<li><a href="#">Service Policy</a></li>
+<li><a href="notice.jsp">FreeBoard</a></li>
+<li><a href="fnotice.jsp">File</a></li>
+<li><a href="pnotice.jsp">Pic</a></li>
 </ul>
 </nav>
 <!-- 왼쪽메뉴 -->
@@ -55,25 +54,17 @@ BoardBean bb=bdao.getBoard(num);
 <!-- 게시판 -->
 <article>
 <h1>reWrite</h1>
-
 <form action="updatePro.jsp" method="post">
 <input type="hidden" name="num" value="<%=num %>">
 <table id="notice">
 <tr><td>글쓴이</td><td><input type="text" name="name" value="<%=bb.getName() %>"></td></tr>
-<tr><td>비밀번호</td><td><input type="password" name="pass"></td></tr>
 <tr><td>제목</td><td><input type="text" name="subject" value="<%=bb.getSubject()%>"></td></tr>
 <tr><td>내용</td>
 	<td><textarea name="content" rows="10" cols="20"><%=bb.getContent() %></textarea></td></tr>
 	<tr><td colspan="2"><input type="submit" value="글수정" class="btn"></td></tr>    
 </table>
-<div id="table_search">
-<input type="submit" value="search" class="btn">
-</div>
 </form>
 <div class="clear"></div>
-<div id="page_control">
-<a href="#">Prev</a>
-</div>
 </article>
 <!-- 게시판 -->
 <!-- 본문들어가는 곳 -->

@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+
 public class MemberDAO {
 	// 1,2 디비연결 메서드
 		public Connection getConnection() throws Exception{
@@ -24,20 +25,27 @@ public class MemberDAO {
 		}
 		// // 접근지정자 리턴값없음 insertMember(mb주소값 받을 변수) 메서드만들기
 		public void insertMember(MemberBean mb) {
+			System.out.println("phone" + mb.getPhone());
+			System.out.println("phone" + mb.getMobile());
+			System.out.println("phone" + mb.getPostcode());
+			System.out.println("phone" + mb.getRoadaddress());
+			System.out.println("phone" + mb.getDetailaddress());
 			try {
 				//1,2단계
 				Connection con=getConnection();
 				//3 sql
-				String sql="insert into member(id,pass,name,date,email,address,phone,mobile) values(?,?,?,?,?,?,?,?)";
+				String sql="insert into member(id,pass,name,date,email,phone,mobile,postcode,roadAddress,detailAddress) values(?,?,?,?,?,?,?,?,?,?)";
 				 PreparedStatement pstmt=con.prepareStatement(sql);
 				 pstmt.setString(1, mb.getId());  //parameterIndex ? 물음표 순서 ,값저장된 변수
 				 pstmt.setString(2, mb.getPass());
 				 pstmt.setString(3, mb.getName());
 				 pstmt.setTimestamp(4, mb.getDate());
 				 pstmt.setString(5, mb.getEmail());
-				 pstmt.setString(6, mb.getAddress());
-				 pstmt.setString(7, mb.getPhone());
-				 pstmt.setString(8, mb.getMobile());
+				 pstmt.setString(6, mb.getPhone());
+				 pstmt.setString(7, mb.getMobile());
+				 pstmt.setString(8, mb.getPostcode());
+				 pstmt.setString(9, mb.getRoadaddress());
+				 pstmt.setString(10, mb.getDetailaddress());
 				// 4 실행
 				 pstmt.executeUpdate();
 				
@@ -99,9 +107,11 @@ public class MemberDAO {
 					mb.setName(rs.getString("name"));
 					mb.setDate(rs.getTimestamp("date"));
 					mb.setEmail(rs.getString("email"));
-					mb.setAddress(rs.getString("address"));
 					mb.setPhone(rs.getString("phone"));
 					mb.setMobile(rs.getString("mobile"));
+					mb.setPostcode(rs.getString("postcode"));
+					mb.setRoadaddress(rs.getString("roadAddress"));
+					mb.setDetailaddress(rs.getString("detailAddress"));
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -111,18 +121,25 @@ public class MemberDAO {
 			return mb;
 		}
 		public void updateMember(MemberBean mb) {
+			System.out.println("phone" + mb.getPhone());
+			System.out.println("phone" + mb.getMobile());
+			System.out.println("phone" + mb.getPostcode());
+			System.out.println("phone" + mb.getRoadaddress());
+			System.out.println("phone" + mb.getDetailaddress());
 			try {
 				//1,2단계
 				Connection con=getConnection();
 				//3 sql
-				String sql="update member set name=?, email=?, address=?, phone=?, mobile=? where id =?";
+				String sql="update member set name=?, email=?, phone=?, mobile=?, postcode=?, roadAddress=?, detailAddress=? where id =?";
 				 PreparedStatement pstmt=con.prepareStatement(sql);
 				 pstmt.setString(1, mb.getName());
 				 pstmt.setString(2, mb.getEmail());
-				 pstmt.setString(3, mb.getAddress());
-				 pstmt.setString(4, mb.getPhone());
-				 pstmt.setString(5, mb.getMobile());
-				 pstmt.setString(6, mb.getId());
+				 pstmt.setString(3, mb.getPhone());
+				 pstmt.setString(4, mb.getMobile());
+				 pstmt.setString(5, mb.getPostcode());
+				 pstmt.setString(6, mb.getRoadaddress());
+				 pstmt.setString(7, mb.getDetailaddress());
+				 pstmt.setString(8, mb.getId());
 				// 4 실행
 				 pstmt.executeUpdate();
 			}catch(Exception e){
@@ -155,4 +172,37 @@ public class MemberDAO {
 			}
 			return check;
 				}
+		public MemberBean getEmail(String id, String email) {
+			MemberBean mb=null;
+			try {
+				//1,2단계
+				Connection con=getConnection();
+				//3
+				String sql="select * from member where id=?";
+				PreparedStatement pstmt=con.prepareStatement(sql);
+				pstmt.setString(1, id);
+				pstmt.setString(2, email);
+				// 4
+				ResultSet rs=pstmt.executeQuery();
+				//5
+				if(rs.next()) {
+					// 객체생성(기억장소할당)
+					mb=new MemberBean();
+					// set 멤버변수 <- rs 가져와서 저장
+					mb.setId(rs.getString("id"));
+					mb.setPass(rs.getString("pass"));
+					mb.setName(rs.getString("name"));
+					mb.setDate(rs.getTimestamp("date"));
+					mb.setEmail(rs.getString("email"));
+					mb.setAddress(rs.getString("address"));
+					mb.setPhone(rs.getString("phone"));
+					mb.setMobile(rs.getString("mobile"));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				//마무리
+			}
+			return mb;
+		}
 }//클래스

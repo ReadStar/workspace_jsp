@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Join</title>
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 <link href="../css/subpage.css" rel="stylesheet" type="text/css">
 <!--[if lt IE 9]>
@@ -21,6 +21,7 @@
 
  </script>
  <![endif]-->
+ <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
  <script type="text/javascript">
  function dupCheck(){
 	 if(document.fr.id.value==""){
@@ -32,8 +33,20 @@
 	 var wid=document.fr.id.value;
 	 window.open("dupCheck.jsp?wid="+wid,"","width=200, height=200");
  }
+ 
+ function DaumPostcode() {
+     new daum.Postcode({
+         oncomplete: function(data) {
+             var roadAddr = data.roadAddress; // 도로명 주소 변수
+             // 우편번호와 주소 정보를 해당 필드에 넣는다.
+             document.getElementById('postcode').value = data.zonecode;
+             document.getElementById("roadAddress").value = roadAddr;
+             
+             detailAddress
+         }
+     }).open();
+ }
  </script>
-
 </head>
 <body>
 <div id="wrap">
@@ -46,19 +59,19 @@
 <div id="sub_img_member"></div>
 <!-- 본문메인이미지 -->
 <!-- 왼쪽메뉴 -->
-<nav id="sub_menu">
-<ul>
-<li><a href="#">Join us</a></li>
-<li><a href="#">Privacy policy</a></li>
-</ul>
-</nav>
+<!-- <nav id="sub_menu"> -->
+<!-- <ul> -->
+<!-- <li><a href="#">Join us</a></li> -->
+<!-- <li><a href="#">Privacy policy</a></li> -->
+<!-- </ul> -->
+<!-- </nav> -->
 <!-- 왼쪽메뉴 -->
 <!-- 본문내용 -->
 <article>
-<h1>Join Us</h1>
+<h1>회원가입</h1>
 <form action="joinPro.jsp" id="join" method="post" name="fr">
 <fieldset>
-<legend>Basic Info</legend>
+<legend>필수정보</legend>
 <label>User ID</label>
 <input type="text" name="id" class="id">
 <input type="button" value="중복확인" class="dup" onclick="dupCheck()"><br>
@@ -75,12 +88,19 @@
 </fieldset>
 
 <fieldset>
-<legend>Optional</legend>
-<label>Address</label>
-<input type="text" name="address"><br>
-<label>Phone Number</label>
+<legend>선택사항</legend>
+<label> 우편번호 </label>
+<input type="text" name = "postcode" id="postcode" placeholder="우편번호">
+<input type="button" class="dup" value="우편번호 찾기" onclick="DaumPostcode()"><br>
+<label>주소</label>
+<input type="text" name ="roadAddress" id="roadAddress"  placeholder="도로명주소">
+<br>
+<label>상세 주소 입력</label>
+<input type="text" name= "detailAddress" id="detailAddress" placeholder="상세주소">
+<br>
+<label>집 전화</label>
 <input type="text" name="phone"><br>
-<label>Mobile Phone Number</label>
+<label>핸드폰 번호</label>
 <input type="text" name="mobile"><br>
 </fieldset>
 <div class="clear"></div>

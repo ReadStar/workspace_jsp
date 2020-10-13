@@ -29,6 +29,13 @@
  
  </script>
  <![endif]-->
+ <style type="text/css"> 
+  a:link { text-decoration: none;} 
+  a:visited { text-decoration: none;} 
+  a:active { text-decoration: none;}
+  a:hover {text-decoration:underline;}
+</style>
+<body vlink="black" link="black" alink="black">
 </head>
 <body>
 <div id="wrap">
@@ -44,9 +51,9 @@
 <!-- 왼쪽메뉴 -->
 <nav id="sub_menu">
 <ul>
-<li><a href="notice.jsp">Notice</a></li>
-<li><a href="fnotice.jsp">ReView</a></li>
-<li><a href="#">Pic</a></li>
+<li><a href="notice.jsp">FreeBoard</a></li>
+<li><a href="fnotice.jsp">File</a></li>
+<li><a href="pnotice.jsp">Pic</a></li>
 </ul>
 </nav>
 <!-- 왼쪽메뉴 -->
@@ -81,7 +88,7 @@ SimpleDateFormat sdf=new SimpleDateFormat("yy.MM.dd");
 %> 
 <!-- 게시판 -->
 <article>
-<h1>Notice</h1>
+<h1>FreeBoard</h1>
 <table id="notice">
 <!-- <tr><th class="tno">No.</th> -->
 <!--     <th class="ttitle">Title</th> -->
@@ -110,13 +117,14 @@ for(int i = 0 ; i < boardList.size() ; i++){
 <form action="noticeSearch.jsp" method="post">
 <input type="text" name="search" class="input_box">
 <input type="submit" value="search" class="btn">
-</form>
 <%
 String id=(String)session.getAttribute("id");
 if(id!=null){
-	%><input type="button" value="Write" class="btn" onclick="location.href='writeForm.jsp'"><%
+	%><input type="button" value="Write" class="btn" onclick="location.href='writeForm.jsp'"
+	style="margin:0 0 0 260px;"><%
 }
 %>
+</form>
 </div>
 <div class="clear"></div>
 <div id="page_control">

@@ -15,6 +15,14 @@
 <title>Insert title here</title>
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 <link href="../css/subpage.css" rel="stylesheet" type="text/css">
+
+<style type="text/css"> 
+  a:link { text-decoration: none;} 
+  a:visited { text-decoration: none;} 
+  a:active { text-decoration: none;}
+  a:hover {text-decoration:underline;}
+</style>
+<body vlink="black" link="black" alink="black">
 <!--[if lt IE 9]>
 <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js" type="text/javascript"></script>
 <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/ie7-squish.js" type="text/javascript"></script>
@@ -44,9 +52,9 @@
 <!-- 왼쪽메뉴 -->
 <nav id="sub_menu">
 <ul>
-<li><a href="notice.jsp">Notice</a></li>
-<li><a href="fnotice.jsp">ReView</a></li>
-<li><a href="#">Pic</a></li>
+<li><a href="notice.jsp">FreeBoard</a></li>
+<li><a href="fnotice.jsp">File</a></li>
+<li><a href="pnotice.jsp">Pic</a></li>
 </ul>
 </nav>
 <!-- 왼쪽메뉴 -->
@@ -85,7 +93,7 @@ SimpleDateFormat sdf=new SimpleDateFormat("yy.MM.dd");
 
 <!-- 게시판 -->
 <article>
-<h1>Notice</h1>
+<h1>FreeBoard</h1>
 <table id="notice">
 <tr><th class="tno">No.</th>
     <th class="ttitle">Title</th>
@@ -97,7 +105,6 @@ SimpleDateFormat sdf=new SimpleDateFormat("yy.MM.dd");
 
 %>
 <h2>전체 게시글 <%=count%></h2>
-<tr><td>번호</td><td>제목</td><td>작성자</td><td>날짜</td><td>조회수</td>
 <%
 for(int i = 0 ; i < boardList.size() ; i++){
 	//배열 한칸에서 게시판 글 하나 가져오기
@@ -118,7 +125,8 @@ for(int i = 0 ; i < boardList.size() ; i++){
 <%
 String id=(String)session.getAttribute("id");
 if(id!=null){
-	%><input type="button" value="Write" class="btn" onclick="location.href='writeForm.jsp'"><%
+	%><input type="button" value="Write" class="btn" onclick="location.href='writeForm.jsp'"
+	style="margin:0 0 0 260px;"><%
 }
 %>
 </div>
