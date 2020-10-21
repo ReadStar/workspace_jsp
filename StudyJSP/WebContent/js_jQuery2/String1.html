@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.5.1.js"></script>
+<script  type="text/javascript">
+		$(document).ready(function(){
+			//.ajax()
+			//비동기식 자바스크립트 XML (Asynchronous Javascript And XML)
+			$.ajax('String1.jsp'),{
+				success:function(rdata){
+					//alert(rdata);
+					// body태그 뒷 부분에 받아온 내용 추가
+					$('body').append(rdata);
+				}
+			};
+			//btn버튼을 클릭했을때 String.jsp 내용을 가져와서 table태그 뒷 부분에 추가
+			$('#btn').click(function(){
+				$.ajax('String1.jsp',{
+					success:function(rdata){
+						$('table').append("<tr><td>"+rdata+"</td></tr>");
+					}
+				});
+			});
+		});
+</script>
+</head>
+<body>
+<h1>js_jQuery2/String1.html</h1>
+<table border="1">
+<tr>가져온 내용<td></td></tr>
+</table>
+<input type="button" value="가져오기" id="btn">
+</body>
+</html>

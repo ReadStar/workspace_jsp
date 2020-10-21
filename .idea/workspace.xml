@@ -102,6 +102,7 @@
       <workItem from="1601580701241" duration="282000" />
       <workItem from="1601581163970" duration="1177000" />
       <workItem from="1602420671038" duration="64000" />
+      <workItem from="1602831432080" duration="111000" />
     </task>
     <servers />
   </component>
@@ -125,5 +126,9 @@
       <screen x="0" y="23" width="1680" height="958" />
     </state>
     <state x="332" y="130" key="SettingsEditor/0.23.1680.958@0.23.1680.958" timestamp="1601582298774" />
+    <state x="208" y="80" key="new project wizard" timestamp="1602831512859">
+      <screen x="0" y="23" width="1680" height="956" />
+    </state>
+    <state x="208" y="80" key="new project wizard/0.23.1680.956@0.23.1680.956" timestamp="1602831512859" />
   </component>
 </project>

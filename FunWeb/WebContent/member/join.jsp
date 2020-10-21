@@ -22,6 +22,29 @@
  </script>
  <![endif]-->
  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+ <script src="../script/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#join9h77777\ ').submit(function(){
+		var id=$('#id').val();
+//			alert(id);
+		//비밀번호
+		var pass=$('#pass').val();
+//			alert(pass);
+		if(id==""){
+			alert("아이디 입력하세요")
+			$('#id').focus();
+			return false;
+		}
+		if(pass==""){
+			alert("비밀번호 입력하세요")
+			$('#pass').focus();
+			return false;
+			}
+	});
+	
+	});
+</script>
  <script type="text/javascript">
  function dupCheck(){
 	 if(document.fr.id.value==""){
