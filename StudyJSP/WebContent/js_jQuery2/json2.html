@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			$("#btn").click(function(){
+				$.getJSON('json2.jsp',function(rdata){
+					$.each(rdata,function(index, item){
+						$('table').append('<tr><td>'+item.id+'</td><td>'+item.pass+'</td><td>'+item.name+'</td><td>'+item.date+'</td></tr>')
+					})
+				});
+			});
+		});
+</script>
+</head>
+<body>
+<h1>js_jQuery2/json2.html</h1>
+<table border="1">
+<tr><td>아이디</td><td>비밀번호</td><td>이름</td><td>가입일</td></tr>
+</table>
+<input type="button" value="가져오기" id="btn">
+</body>
+</html>

@@ -37,7 +37,18 @@
 
  </script>
  <![endif]--> 
-
+<script  src="../jQuery/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.brown').click(function(){
+			$.getJSON('mainjson.jsp',function(rdata){
+				$.each(rdata, function(index,item){
+					$('table').append('<tr><td>'+item.subject+'</td><td>'+item.date+'</td></tr>');
+				});
+			});
+		});
+	});
+</script>
 
 </head>
 <body>
@@ -91,16 +102,16 @@ for(int i=0; i<boardList.size(); i++){
 <h3 class="brown">File</h3>
 <table>
 <%
-fBoardDAO fdao = new fBoardDAO();
-List fboardList = fdao.getfileBoardList(startRow, pageSize);
-SimpleDateFormat sdf2=new SimpleDateFormat("yyyy.MM.dd. hh:mm");
-for(int j=0; j<fboardList.size(); j++){
-	fBoardBean fb=(fBoardBean)fboardList.get(j);
+// fBoardDAO fdao = new fBoardDAO();
+// List fboardList = fdao.getfileBoardList(startRow, pageSize);
+// SimpleDateFormat sdf2=new SimpleDateFormat("yyyy.MM.dd. hh:mm");
+// for(int j=0; j<fboardList.size(); j++){
+// 	fBoardBean fb=(fBoardBean)fboardList.get(j);
 	%>
-<tr><td class="contxt"><a href="../center/pcontent.jsp?num=<%=fb.getNum()%>"><%=fb.getSubject() %></a></td>
-    <td><%=sdf2.format(fb.getDate())%></td></tr>
+<%-- <tr><td class="contxt"><a href="../center/pcontent.jsp?num=<%=fb.getNum()%>"><%=fb.getSubject() %></a></td> --%>
+<%--     <td><%=sdf2.format(fb.getDate())%></td></tr> --%>
     <%
-}
+// }
 // request.setCharacterEncoding("utf-8");
 // //int num 파라미터 값 가져오기
 // int num=Integer.parseInt(request.getParameter("num"));
